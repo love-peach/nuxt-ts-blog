@@ -1,0 +1,39 @@
+.card-category-list {
+  position: relative;
+
+  .category-item {
+    position: relative;
+    padding: 0 15px;
+    z-index: 1;
+  }
+
+  .category-item-link {
+    display: block;
+    padding-left: 15px;
+    height: 40px;
+    color: @colorTextSub;
+    line-height: 40px;
+    text-decoration: none;
+    border-bottom: 1px solid lighten(@colorBorderLight, 2%);
+  }
+
+  .category-item-link:hover {
+    color: @colorTextContent;
+  }
+
+  .current {
+    color: @colorTextContent;
+  }
+
+  .category-item-slider {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    border-right: 4px solid @colorInfo;
+    background-color: lighten(@colorBorderLight, 2%);
+    transition: top .2s;
+  }
+}

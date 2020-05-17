@@ -1,3 +1,28 @@
+const path = require('path');
+const fs = require('fs');
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
+function getLessVariables(file) {
+  const themeContent = fs.readFileSync(file, 'utf-8');
+  const variables = {};
+  themeContent.split('\n').forEach(function(item) {
+    if (item.includes('//') || item.includes('/*')) {
+      return;
+    }
+    const _pair = item.split(':');
+    if (_pair.length < 2) return;
+    const key = _pair[0].replace('\r', '').replace('@', '');
+    if (!key) return;
+    const value = _pair[1]
+      .replace(';', '')
+      .replace('\r', '')
+      .replace(/^\s+|\s+$/g, '');
+    variables[key] = value;
+  });
+  return variables;
+}
 module.exports = {
   mode: 'universal',
   /*
@@ -11,10 +36,10 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -23,7 +48,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/css/index.less'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -34,7 +59,7 @@ module.exports = {
   buildModules: [
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
   ],
   /*
    ** Nuxt.js modules
@@ -43,7 +68,7 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Axios module configuration
@@ -57,6 +82,19 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
-}
+    // extend(config, ctx) {},
+
+    loaders: {
+      less: {
+        lessOptions: {
+          // prependData: getLessVariables(resolve('assets/css/variables.less'))
+          modifyVars: getLessVariables(resolve('assets/css/variables.less')),
+          javascriptEnabled: true,
+        },
+        // prependData: getLessVariables(resolve('assets/css/variables.less'))
+        // modifyVars: getLessVariables(resolve('assets/css/variables.less')),
+        // javascriptEnabled: true,
+      },
+    },
+  },
+};

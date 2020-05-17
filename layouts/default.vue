@@ -1,55 +1,36 @@
 <template>
-  <div>
-    <nuxt />
+  <div class="app-layout-wrap">
+    <AppHeader />
+    <div class="app-content">
+      <nuxt />
+    </div>
+    <AppFooter />
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+import AppHeader from '@/components/framework/app-header/index.js';
+import AppFooter from '@/components/framework/app-footer/index.js';
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
+export default {
+  name: 'AppLayout',
+  components: {
+    AppHeader,
+    AppFooter,
+  },
+  data() {
+    return {};
+  },
+};
+</script>
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+<style lang="less" scoped>
+.app-layout-wrap {
+  height: 100%;
+  .app-content {
+    padding-top: @heightHeader + 20;
+    min-height: 100%;
+    padding-bottom: @heightFooter + 20;
+  }
 }
 </style>
