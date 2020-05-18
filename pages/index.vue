@@ -5,7 +5,7 @@
       <div class="page-slogan-sub">To be a <RotatingText :words="words2" width="3.8em" /> front-end developer</div>
       <div class="banner-btn-wrap">
         <Btn theme="success" shape="circle" size="large" class="banner-btn" icon="github">Github</Btn>
-        <Btn shape="circle" size="large" ghost class="banner-btn" :to="{ path: '/blog' }">进入博客</Btn>
+        <Btn shape="circle" size="large" ghost class="banner-btn" :to="{ path: '/article' }">进入博客</Btn>
       </div>
     </BillBoard>
     <div class="page-content">
@@ -15,7 +15,7 @@
         <div class="z-container">
           <div class="z-row">
             <div class="z-col-sm-30 z-col-md-30 z-col-lg-12">
-              <section-card title="前端文章" icon="artical" path="/blog">
+              <section-card title="前端文章" icon="artical" path="/article">
                 <div>
                   Vue全家桶(vue, vue-router, vuex, axios)实现一套博客系统，支持 md 边写作边预览。
                 </div>

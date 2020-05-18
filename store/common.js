@@ -7,18 +7,31 @@ const state = () => ({
   showSignUpModal: false,
   userInfo: null,
   highLightIndex: 0, // markdown 目录高亮索引
+  categoryIndex: 0,
 });
 
 const getters = {
   getBlogResult: state => state.blogResult,
   getCategoryList: state => state.categoryList,
   getCategoryIdByValue: state => value => {
-    return value ? state.categoryList.filter(item => item.value === value)[0]._id : '';
+    let categoryId = '';
+    if (value) {
+      const categoryIdFilter = state.categoryList.filter(item => item.value === value);
+      if (categoryIdFilter.length) {
+        categoryId = categoryIdFilter[0]._id;
+      } else {
+        categoryId = '';
+      }
+    } else {
+      categoryId = '';
+    }
+    return categoryId;
   },
   getIsShowSignInModal: state => state.showSignInModal,
   getIsShowSignUpModal: state => state.showSignUpModal,
   getUserInfo: state => state.userInfo,
   getHighLightIndex: state => state.highLightIndex,
+  getCategoryIndex: state => state.categoryIndex,
 };
 
 const mutations = {
@@ -40,16 +53,14 @@ const mutations = {
   setHighLightIndex(state, { index }) {
     state.highLightIndex = index;
   },
+  setCatgoryIndex(state, data) {
+    state.categoryIndex = data;
+  },
 };
 
 const actions = {
-  // async getCategoryList({ commit }) {
-  //   const res = await api.GetCategory();
-  //   commit('setCatgoryList', res && res.result ? res.result : []);
-  // },
-
-  getCategoryList({ commit }) {
-    const res = [];
+  async getCategoryList({ commit }) {
+    const res = await this.$myApi.categories.index();
     commit('setCatgoryList', res && res.result ? res.result : []);
   },
   toggleSignInModal({ commit }, isShow) {
@@ -63,6 +74,9 @@ const actions = {
   },
   changeHighLightIndex({ commit }, data) {
     commit('setHighLightIndex', data);
+  },
+  changeCategoryIndex({ commit }, data) {
+    commit('setCatgoryIndex', data);
   },
 };
 

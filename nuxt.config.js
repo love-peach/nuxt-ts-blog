@@ -52,7 +52,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/axios', '~/plugins/filters.js', '~/plugins/api-repositories.js', { src: '~/plugins/storeCache', ssr: false }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -69,12 +69,49 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    '@nuxtjs/proxy',
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true,
+    headers: {
+      common: {
+        Authorization: 'Bearer 2f0ajwefjoaijwef',
+      },
+    },
+  },
+  /*
+   ** 配置代理
+   */
+  proxy: {
+    '/api/': {
+      target: process.env.NODE_ENV === 'production' ? 'https://zhangjinpei.cn' : 'http://localhost:3000/',
+    },
+    '/douban/': {
+      target: 'http://api.douban.com/v2',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/douban': '',
+      },
+    },
+    '/douban/movie/': {
+      target: 'http://api.douban.com/v2/movie',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/douban/movie/': '',
+      },
+    },
+    '/doubanOld/': {
+      target: 'https://movie.douban.com',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/doubanOld/': '',
+      },
+    },
+  },
   /*
    ** Build configuration
    */
@@ -96,5 +133,8 @@ module.exports = {
         // javascriptEnabled: true,
       },
     },
+  },
+  server: {
+    port: 8000, // default: 3000
   },
 };

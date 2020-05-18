@@ -2,7 +2,7 @@
   <div :class="classes">
     <Icon class="app-menu-handle" type="liebiao" :size="24" @click="handleToggleMenu" />
     <ul class="app-menu-list">
-      <router-link v-for="(nav, index) in navList" :key="index" exact class="app-menu-link" active-class="current" :to="nav.path" tag="li">{{ nav.name }}</router-link>
+      <router-link v-for="(nav, index) in navList" :key="index" class="app-menu-link" active-class="current" :to="nav.path" tag="li">{{ nav.name }}</router-link>
       <li class="app-menu-link app-menu-login">
         <LoginControl :theme="theme" />
       </li>
@@ -32,10 +32,10 @@ export default {
     return {
       isShowMenu: false,
       navList: [
-        {
-          name: '首页',
-          path: '/',
-        },
+        // {
+        //   name: '首页',
+        //   path: '/',
+        // },
         {
           name: '前端文章',
           path: '/article',

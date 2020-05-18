@@ -1,8 +1,11 @@
+import Vuex from 'vuex';
 import Card from '@/components/base/card/';
 import NoData from '@/components/kit/no-data/';
 
+const { mapGetters } = Vuex;
+
 export default {
-  name: 'card-search',
+  name: 'card-category',
   components: {
     Card,
     NoData,
@@ -15,11 +18,6 @@ export default {
       },
     },
   },
-  data() {
-    return {
-      topIndex: 0,
-    };
-  },
   computed: {
     caseLimitType() {
       return this.getSelectOptionsByKey('case_limit_type');
@@ -27,14 +25,12 @@ export default {
     parentPath() {
       return this.$route.path.split('/')[1];
     },
+    ...mapGetters('common', {
+      topIndex: 'getCategoryIndex',
+    }),
   },
-  watch: {
-    $route: {
-      handler() {
-        this.checkPathname();
-      },
-      deep: true,
-    },
+  mounted() {
+    this.checkPathname();
   },
   methods: {
     /**
@@ -46,13 +42,13 @@ export default {
       if (categoryPath) {
         this.categoryList.forEach((item, index) => {
           if (`/${this.parentPath}/${item.value}` === currentPath) {
-            this.topIndex = index;
+            this.changeTop(index);
           }
         });
       } else {
         this.categoryList.forEach((item, index) => {
           if (item.value === '/') {
-            this.topIndex = index;
+            this.changeTop(index);
           }
         });
       }
@@ -62,7 +58,7 @@ export default {
      * @desc 改变当前聚焦的分类
      */
     changeTop(index) {
-      this.topIndex = index;
+      this.$store.dispatch('common/changeCategoryIndex', index);
     },
   },
 };
