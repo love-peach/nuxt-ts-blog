@@ -206,7 +206,7 @@
   </div>
 </template>
 
-<script src="./index.js"></script>
+<script lang="ts" src="./index.ts"></script>
 
 <style lang="less" scoped>
 .page {

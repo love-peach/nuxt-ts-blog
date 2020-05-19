@@ -99,6 +99,7 @@ export default {
      */
     updateValue() {
       this.$emit('input', this.selectedValue);
+      this.$emit('on-change', this.selectedValue);
     },
 
     /**

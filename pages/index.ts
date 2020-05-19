@@ -1,18 +1,22 @@
+import Vue from 'vue';
+
 import SectionCard from '@/components/page/home/section-card.vue';
 import SectionTitle from '@/components/page/home/section-title.vue';
 import SectionTimeline from '@/components/page/home/section-timeline.vue';
-import banneImg from '@/assets/img/home/banner.jpg';
-import demoImg from '@/assets/img/home/demo1.jpg';
-import demoImg2 from '@/assets/img/home/demo2.jpg';
-import demoImg3 from '@/assets/img/home/demo3.png';
-import demoImg4 from '@/assets/img/home/demo4.png';
+
 import Icon from '@/components/base/icon/';
 import Btn from '@/components/base/btn/';
 import ZPanel from '@/components/base/panel/';
 import RotatingText from '@/components/kit/rotating-text';
 import BillBoard from '@/components/kit/billboard/';
 
-export default {
+const banneImg = require('@/assets/img/home/banner.jpg');
+const demoImg = require('@/assets/img/home/demo1.jpg');
+const demoImg2 = require('@/assets/img/home/demo2.jpg');
+const demoImg3 = require('@/assets/img/home/demo3.png');
+const demoImg4 = require('@/assets/img/home/demo4.png');
+
+export default Vue.extend({
   name: 'HomePage',
   components: {
     BillBoard,
@@ -92,4 +96,4 @@ export default {
       ],
     };
   },
-};
+});

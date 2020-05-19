@@ -1,0 +1,24 @@
+.fixed-side-card {
+  position: fixed;
+  top: @heightHeader + 20;
+  width: 100%;
+  @media screen and (min-width: @breakpoints-xs) {
+    // min-width: 320px;
+  }
+
+  @media screen and (min-width: @breakpoints-sm) {
+    max-width: @containerMaxWidth-sm * 7 / 24 - 16;
+  }
+
+  @media screen and (min-width: @breakpoints-md) {
+    max-width: @containerMaxWidth-md * 7 / 24 - 16;
+  }
+
+  @media screen and (min-width: @breakpoints-lg) {
+    max-width: @containerMaxWidth-lg * 7 / 24 - 16;
+  }
+
+  @media screen and (min-width: @breakpoints-xl) {
+    max-width: @containerMaxWidth-xl * 6 / 24 - 16;
+  }
+}

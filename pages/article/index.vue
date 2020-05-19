@@ -10,6 +10,9 @@
         <CardNoData v-else style="height: 300px;" />
       </div>
       <div class="list-side z-col-md-18 z-col-xl-15">
+        <Card class="search-wrap">
+          <SearchBlog @on-search="handleSearch"></SearchBlog>
+        </Card>
         <CardCategory :category-list="categoryList" />
       </div>
     </div>
@@ -19,11 +22,11 @@
 <script lang="ts">
 import Vue from 'vue';
 import Vuex from 'vuex';
-import TopicItem from '@/components/page/article/topic-item/index.js';
+import TopicItem from '@/components/kit/topic-item/index.js';
 import Card from '@/components/base/card/';
 import CardNoData from '@/components/kit/card-no-data/';
 import CardCategory from '@/components/kit/card-category/';
-// import SearchBlog from '@/components/kit/search-blog/';
+import SearchBlog from '@/components/kit/search-blog/';
 
 const { mapGetters } = Vuex;
 
@@ -39,10 +42,10 @@ export default Vue.extend({
     TopicItem,
     CardNoData,
     CardCategory,
-    // SearchBlog,
+    SearchBlog,
   },
   async fetch({ store }: ctxProps) {
-    await store.dispatch('common/getCategoryList');
+    await store.dispatch('common/requestCategoryList');
   },
   async asyncData({ app }: ctxProps) {
     const params = {

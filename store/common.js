@@ -2,6 +2,7 @@
 
 const state = () => ({
   categoryList: [],
+  tagList: [],
   blogResult: {},
   showSignInModal: false,
   showSignUpModal: false,
@@ -27,6 +28,7 @@ const getters = {
     }
     return categoryId;
   },
+  getTagList: state => state.tagList,
   getIsShowSignInModal: state => state.showSignInModal,
   getIsShowSignUpModal: state => state.showSignUpModal,
   getUserInfo: state => state.userInfo,
@@ -37,6 +39,9 @@ const getters = {
 const mutations = {
   setCatgoryList(state, data) {
     state.categoryList = data;
+  },
+  setTagList(state, data) {
+    state.tagList = data;
   },
   setBlogResult(state, data) {
     state.blogResult = data;
@@ -59,9 +64,13 @@ const mutations = {
 };
 
 const actions = {
-  async getCategoryList({ commit }) {
+  async requestCategoryList({ commit }) {
     const res = await this.$myApi.categories.index();
     commit('setCatgoryList', res && res.result ? res.result : []);
+  },
+  async requestTagList({ commit }) {
+    const res = await this.$myApi.tags.index();
+    commit('setTagList', res && res.result ? res.result : []);
   },
   toggleSignInModal({ commit }, isShow) {
     commit('setSignInModal', isShow);

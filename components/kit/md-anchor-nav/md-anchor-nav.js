@@ -1,3 +1,4 @@
+import Vuex from 'vuex';
 const { mapGetters } = Vuex;
 
 let vm = null;

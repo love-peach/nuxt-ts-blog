@@ -10,6 +10,9 @@
         <CardNoData v-else style="height: 300px;" />
       </div>
       <div class="list-side z-col-md-18 z-col-xl-15">
+        <Card class="search-wrap">
+          <SearchBlog @on-search="handleSearch"></SearchBlog>
+        </Card>
         <CardCategory :category-list="categoryList" />
       </div>
     </div>
@@ -19,11 +22,11 @@
 <script lang="ts">
 import Vue from 'vue';
 import Vuex from 'vuex';
-import TopicItem from '@/components/page/article/topic-item/index.js';
+import TopicItem from '@/components/kit/topic-item/index.js';
 import Card from '@/components/base/card/';
 import CardNoData from '@/components/kit/card-no-data/';
 import CardCategory from '@/components/kit/card-category/';
-// import SearchBlog from '@/components/kit/search-blog/';
+import SearchBlog from '@/components/kit/search-blog/';
 
 const { mapGetters } = Vuex;
 
@@ -40,13 +43,13 @@ export default Vue.extend({
     TopicItem,
     CardNoData,
     CardCategory,
-    // SearchBlog,
+    SearchBlog,
   },
   async asyncData({ app, params, store }: ctxProps) {
     const categoryList: [] = store.getters['common/getCategoryList'];
 
     if (categoryList.length === 0) {
-      await store.dispatch('common/getCategoryList');
+      await store.dispatch('common/requestCategoryList');
     }
 
     const category = store.getters['common/getCategoryIdByValue'](params.category);
@@ -55,7 +58,6 @@ export default Vue.extend({
       limit: 10,
       category,
     };
-    console.log(params.category, sendParams, 'res12121212');
 
     const res = await app.$myApi.blogs.index(sendParams);
 
@@ -82,7 +84,7 @@ export default Vue.extend({
      * @desc 搜索
      */
     handleSearch(keyword: string): void {
-      this.$router.push({ path: '/blog/search', query: { keyword } });
+      this.$router.push({ path: '/search', query: { keyword } });
     },
   },
 });

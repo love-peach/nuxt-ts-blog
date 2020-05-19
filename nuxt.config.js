@@ -23,6 +23,7 @@ function getLessVariables(file) {
   });
   return variables;
 }
+
 module.exports = {
   mode: 'universal',
   /*
@@ -124,13 +125,9 @@ module.exports = {
     loaders: {
       less: {
         lessOptions: {
-          // prependData: getLessVariables(resolve('assets/css/variables.less'))
           modifyVars: getLessVariables(resolve('assets/css/variables.less')),
           javascriptEnabled: true,
         },
-        // prependData: getLessVariables(resolve('assets/css/variables.less'))
-        // modifyVars: getLessVariables(resolve('assets/css/variables.less')),
-        // javascriptEnabled: true,
       },
     },
   },

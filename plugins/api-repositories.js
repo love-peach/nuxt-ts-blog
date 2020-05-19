@@ -7,6 +7,11 @@ export default ({ $axios }, inject) => {
     blogs: repositoryWithAxios('/api/blogs'),
     users: repositoryWithAxios('/api/users'),
     categories: repositoryWithAxios('/api/categories'),
+    tags: repositoryWithAxios('/api/tags'),
+    resourceTypes: repositoryWithAxios('/api/resourceTypes'),
+    resources: repositoryWithAxios('/api/resources'),
+    comments: repositoryWithAxios('/api/comments'),
+    replys: repositoryWithAxios('/api/comments'),
   };
 
   inject('myApi', repositories);
