@@ -14,6 +14,7 @@
     "strict": true,
     "noEmit": true,
     "noImplicitThis": false,
+    "noImplicitAny": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {

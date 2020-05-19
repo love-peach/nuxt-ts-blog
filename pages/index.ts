@@ -30,6 +30,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      loading: true,
       banneImg,
       poster: demoImg,
       poster2: demoImg2,

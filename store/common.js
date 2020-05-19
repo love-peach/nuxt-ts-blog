@@ -7,6 +7,7 @@ const state = () => ({
   showSignInModal: false,
   showSignUpModal: false,
   userInfo: null,
+  token: '',
   highLightIndex: 0, // markdown 目录高亮索引
   categoryIndex: 0,
 });
@@ -32,6 +33,7 @@ const getters = {
   getIsShowSignInModal: state => state.showSignInModal,
   getIsShowSignUpModal: state => state.showSignUpModal,
   getUserInfo: state => state.userInfo,
+  getToken: state => state.token,
   getHighLightIndex: state => state.highLightIndex,
   getCategoryIndex: state => state.categoryIndex,
 };
@@ -54,6 +56,9 @@ const mutations = {
   },
   setUserInfo(state, data) {
     state.userInfo = data;
+  },
+  setToken(state, data) {
+    state.token = data;
   },
   setHighLightIndex(state, { index }) {
     state.highLightIndex = index;
@@ -80,6 +85,9 @@ const actions = {
   },
   changeUserInfo({ commit }, data) {
     commit('setUserInfo', data);
+  },
+  changeToken({ commit }, data) {
+    commit('setToken', data);
   },
   changeHighLightIndex({ commit }, data) {
     commit('setHighLightIndex', data);

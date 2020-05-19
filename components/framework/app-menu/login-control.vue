@@ -45,17 +45,10 @@ export default {
       userInfo: 'getUserInfo',
     }),
   },
-  mounted() {
-    const userInfo = webStore.getUserInfo();
-    if (userInfo) {
-      this.handleChangeUserInfo(userInfo);
-    }
-  },
   methods: {
     ...mapActions({
       toggleSignUpModal: 'common/toggleSignUpModal',
       toggleSignInModal: 'common/toggleSignInModal',
-      handleChangeUserInfo: 'common/changeUserInfo',
     }),
 
     /**
@@ -79,7 +72,8 @@ export default {
      */
     handleSignOut() {
       webStore.sessionClear();
-      this.handleChangeUserInfo(null);
+      this.$store.dispatch('common/changeUserInfo', null);
+      this.$store.dispatch('common/changeToken', '');
     },
   },
 };

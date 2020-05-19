@@ -22,5 +22,11 @@ export default $axios => resource => {
     api.PostBlogLike = payload => $axios.$post(`${resource}/like`, payload);
     api.PostBlogUnLike = payload => $axios.$post(`${resource}/unlike`, payload);
   }
+  if (resource.indexOf('users') > 0) {
+    api.PostUserLogin = payload => $axios.$post(`${resource}/signin`, payload);
+    api.PostUserSignout = payload => $axios.$post(`${resource}/signout`, payload);
+    api.PostForgetPwd = payload => $axios.$post(`${resource}/forgetPwd`, payload);
+    api.PostChangePwd = payload => $axios.$post(`${resource}/changePwd`, payload);
+  }
   return api;
 };

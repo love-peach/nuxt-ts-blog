@@ -77,7 +77,7 @@ export default Vue.extend({
      * @desc 搜索
      */
     handleSearch(keyword: string): void {
-      this.$router.push({ path: '/blog/search', query: { keyword } });
+      this.$router.push({ path: '/article/search', query: { keyword } });
     },
   },
 });

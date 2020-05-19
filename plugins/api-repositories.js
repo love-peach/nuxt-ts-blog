@@ -11,7 +11,7 @@ export default ({ $axios }, inject) => {
     resourceTypes: repositoryWithAxios('/api/resourceTypes'),
     resources: repositoryWithAxios('/api/resources'),
     comments: repositoryWithAxios('/api/comments'),
-    replys: repositoryWithAxios('/api/comments'),
+    replys: repositoryWithAxios('/api/replys'),
   };
 
   inject('myApi', repositories);

@@ -5,6 +5,9 @@
       <nuxt />
     </div>
     <AppFooter />
+
+    <SignIn />
+    <SignUp />
   </div>
 </template>
 
@@ -12,11 +15,17 @@
 import AppHeader from '@/components/framework/app-header/index.js';
 import AppFooter from '@/components/framework/app-footer/index.js';
 
+import SignIn from '@/components/kit/sign-in/index.js';
+import SignUp from '@/components/kit/sign-up/index.js';
+
 export default {
   name: 'AppLayout',
   components: {
     AppHeader,
     AppFooter,
+
+    SignIn,
+    SignUp,
   },
   data() {
     return {};

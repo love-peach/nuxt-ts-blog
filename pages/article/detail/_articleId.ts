@@ -211,7 +211,6 @@ export default Vue.extend({
       if (this.userInfo && this.userInfo._id) {
         this.requestLike();
       } else {
-        this.$toast.info('请登录');
         this.toggleSignInModal(true);
       }
     },

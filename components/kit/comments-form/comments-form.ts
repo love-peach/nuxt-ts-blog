@@ -55,11 +55,12 @@ export default Vue.extend({
      */
     requestComments() {
       const params = {
-        blogId: this.$route.params.blogId,
+        blogId: this.$route.params.articleId,
         from: this.userInfo._id,
         content: this.formData.content,
       };
       this.isAddCommentLoading = true;
+
       this.$myApi.comments
         .create(params)
         .then(() => {

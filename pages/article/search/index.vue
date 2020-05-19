@@ -104,11 +104,17 @@ export default Vue.extend({
         ...this.formData,
       };
 
+      this.$nuxt.$loading.start();
+
       this.$myApi.blogs
         .index(params)
         .then((res: any) => {
           this.blogList = res.result.list;
           this.isLoading = false;
+
+          setTimeout(() => {
+            this.$nuxt.$loading.finish();
+          }, 5000);
         })
         .catch(() => {
           this.isLoading = false;

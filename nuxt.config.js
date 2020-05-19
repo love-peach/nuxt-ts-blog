@@ -45,7 +45,7 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: 'red' },
   /*
    ** Global CSS
    */
@@ -71,7 +71,14 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/proxy',
+    '@nuxtjs/toast',
   ],
+  toast: {
+    theme: 'bubble',
+    position: 'top-center',
+    duration: 3000,
+    singleton: true,
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -80,7 +87,9 @@ module.exports = {
     proxy: true,
     headers: {
       common: {
-        Authorization: 'Bearer 2f0ajwefjoaijwef',
+        'Access-Control-Allow-Origin': '*',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json; charset=UTF-8',
       },
     },
   },
