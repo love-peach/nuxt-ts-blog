@@ -38,5 +38,10 @@
     "nodemon": "^1.18.9",
     "prettier": "^1.19.1",
     "stylelint": "^10.1.0"
+  },
+  "config": {
+    "nuxt": {
+      "host": "127.0.0.1"
+    }
   }
 }

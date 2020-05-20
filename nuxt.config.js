@@ -45,7 +45,10 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: 'red' },
+  loading: {
+    color: '#19be6b',
+    height: '5px',
+  },
   /*
    ** Global CSS
    */
@@ -84,7 +87,7 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    proxy: true,
+    // proxy: true,
     headers: {
       common: {
         'Access-Control-Allow-Origin': '*',
@@ -99,6 +102,7 @@ module.exports = {
   proxy: {
     '/api/': {
       target: process.env.NODE_ENV === 'production' ? 'https://zhangjinpei.cn' : 'http://localhost:3000/',
+      changeOrigin: true,
     },
     '/douban/': {
       target: 'http://api.douban.com/v2',
@@ -142,5 +146,6 @@ module.exports = {
   },
   server: {
     port: 8000, // default: 3000
+    // host: '0.0.0.0',
   },
 };
