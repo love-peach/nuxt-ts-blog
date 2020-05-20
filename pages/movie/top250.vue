@@ -81,8 +81,8 @@ export default {
     ScoreStart,
   },
   filters: {
-    arrayFormat(array) {
-      return array.map(item => item.name).join(' / ');
+    arrayFormat(array: any) {
+      return array.map((item: any) => item.name).join(' / ');
     },
   },
   data() {
@@ -109,7 +109,7 @@ export default {
       this.isLoading = true;
       doubanApi
         .DoubanMovieRankingTop250(params)
-        .then(res => {
+        .then((res: any) => {
           this.isLoading = false;
           this.tableData = res.subjects;
           this.pageTotal = Math.ceil(res.total / res.count);
@@ -122,7 +122,7 @@ export default {
     /**
      * @desc 分页
      */
-    handleChangePage(page) {
+    handleChangePage(page: number) {
       this.page = page;
       this.requestTop250();
     },

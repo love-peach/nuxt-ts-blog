@@ -1,6 +1,6 @@
 <template>
   <div class="admin-header-wrap">
-    <div>fe</div>
+    <div></div>
     <AppMenu />
   </div>
 </template>

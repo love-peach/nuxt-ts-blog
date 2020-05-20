@@ -87,7 +87,7 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    // proxy: true,
+    proxy: true,
     headers: {
       common: {
         'Access-Control-Allow-Origin': '*',

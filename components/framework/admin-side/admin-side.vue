@@ -38,7 +38,7 @@ export default {
         },
         {
           name: '前端资源类别管理',
-          path: '/admin/resourceType',
+          path: '/admin/resource-type',
         },
         {
           name: '前端资源管理',

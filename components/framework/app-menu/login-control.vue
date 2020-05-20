@@ -26,8 +26,6 @@ import Zbtn from '@/components/base/btn/';
 import ZbtnGroup from '@/components/base/btn-group/';
 import ConcaveRadiusBox from '@/components/kit/concave-radius-box/';
 
-import webStore from '@/assets/js/storage.js';
-
 const { mapGetters, mapActions } = Vuex;
 
 export default {
@@ -71,7 +69,7 @@ export default {
      * @desc 退出登录
      */
     handleSignOut() {
-      webStore.sessionClear();
+      sessionStorage.clear();
       this.$store.dispatch('common/changeUserInfo', null);
       this.$store.dispatch('common/changeToken', '');
     },

@@ -29,20 +29,20 @@ export default Vue.extend({
     Button,
     MovieHomeList,
   },
-  async asyncData() {
-    const [res1, res2, res3, res4] = await Promise.all([
-      doubanApi.DoubanMovieBeingShown({ count: 10 }),
-      doubanApi.DoubanMovieRankingNew({ count: 10 }),
-      doubanApi.DoubanMovieRankingComing({ count: 10 }),
-      doubanApi.DoubanMovieRankingTop250({ count: 10 }),
-    ]);
-    return {
-      beingShownData: res1,
-      rankingNewData: res2,
-      rankingComingData: res3,
-      ranking250Data: res4,
-    };
-  },
+  // async asyncData() {
+  //   const [res1, res2, res3, res4] = await Promise.all([
+  //     doubanApi.DoubanMovieBeingShown({ count: 10 }),
+  //     doubanApi.DoubanMovieRankingNew({ count: 10 }),
+  //     doubanApi.DoubanMovieRankingComing({ count: 10 }),
+  //     doubanApi.DoubanMovieRankingTop250({ count: 10 }),
+  //   ]);
+  //   return {
+  //     beingShownData: res1,
+  //     rankingNewData: res2,
+  //     rankingComingData: res3,
+  //     ranking250Data: res4,
+  //   };
+  // },
   data() {
     return {
       isBeingShownLoading: false,
@@ -69,18 +69,18 @@ export default Vue.extend({
       return this.ranking250Data.subjects ? this.ranking250Data.subjects.slice(0, 10) : [];
     },
   },
-  // async mounted() {
-  //   const [res1, res2, res3, res4] = await Promise.all([
-  //     doubanApi.DoubanMovieBeingShown({ count: 10 }),
-  //     doubanApi.DoubanMovieRankingNew({ count: 10 }),
-  //     doubanApi.DoubanMovieRankingComing({ count: 10 }),
-  //     doubanApi.DoubanMovieRankingTop250({ count: 10 }),
-  //   ]);
-  //   this.beingShownData = res1;
-  //   this.rankingNewData = res2;
-  //   this.rankingComingData = res3;
-  //   this.ranking250Data = res4;
-  // },
+  async mounted() {
+    const [res1, res2, res3, res4] = await Promise.all([
+      doubanApi.DoubanMovieBeingShown({ count: 10 }),
+      doubanApi.DoubanMovieRankingNew({ count: 10 }),
+      doubanApi.DoubanMovieRankingComing({ count: 10 }),
+      doubanApi.DoubanMovieRankingTop250({ count: 10 }),
+    ]);
+    this.beingShownData = res1;
+    this.rankingNewData = res2;
+    this.rankingComingData = res3;
+    this.ranking250Data = res4;
+  },
   head() {
     return {
       title: this.title,

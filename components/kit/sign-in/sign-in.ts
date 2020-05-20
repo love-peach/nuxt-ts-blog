@@ -1,9 +1,6 @@
 import Vuex from 'vuex';
 import Modal from '@/components/base/modal/';
 import Btn from '@/components/base/btn/';
-// import webStore2 from '@/assets/js/storage.js';
-
-// const webStore: any = webStore2;
 
 const { mapGetters } = Vuex;
 
@@ -40,7 +37,6 @@ export default {
       this.$myApi.users
         .PostUserLogin(params)
         .then((res: any) => {
-          // webStore.setUserInfo(res.result);
           this.$store.dispatch('common/changeUserInfo', res.result);
           this.$store.dispatch('common/changeToken', res.result.token);
           this.isLoginLoading = false;

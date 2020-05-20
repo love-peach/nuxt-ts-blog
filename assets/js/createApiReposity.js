@@ -11,8 +11,8 @@ export default $axios => resource => {
     show(payload) {
       return $axios.$get(`${resource}/${payload.id}`);
     },
-    update() {
-      return $axios.$put(resource);
+    update(payload) {
+      return $axios.$put(`${resource}/${payload.id}`, payload);
     },
     delete(id) {
       return $axios.$delete(`${resource}/${id}`);
