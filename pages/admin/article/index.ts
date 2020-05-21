@@ -299,7 +299,6 @@ export default {
      * @desc 表格点击事件 上下架状态
      */
     handleRowToggleStatus(value: any, row: any) {
-      console.log(value, row, '22');
       if (this.handleValidateUserAuth()) {
         this.requestToggleBlogStatus(value, row);
       }

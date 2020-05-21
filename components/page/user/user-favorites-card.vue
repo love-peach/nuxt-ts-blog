@@ -29,18 +29,17 @@ dayjs.extend(relativeTime);
 
 export default {
   name: 'UserFavoritesCard',
-  components: {},
+  filters: {
+    relativeTime(value) {
+      return dayjs(value).fromNow();
+    },
+  },
   props: {
     blogData: {
       type: Object,
       default() {
         return {};
       },
-    },
-  },
-  filters: {
-    relativeTime(value) {
-      return dayjs(value).fromNow();
     },
   },
 };

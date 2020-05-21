@@ -1,12 +1,12 @@
 <template>
   <div class="user-page-title-wrap">
-    <p class="user-page-title" v-if="title">{{ title }}</p>
-    <div class="user-page-title" v-if="isShowTitleSlot">
+    <p v-if="title" class="user-page-title">{{ title }}</p>
+    <div v-if="isShowTitleSlot" class="user-page-title">
       <slot name="title"></slot>
     </div>
 
-    <p class="user-page-title-sub" v-if="titleSub">{{ titleSub }}</p>
-    <div class="user-page-title-sub" v-if="isShowTitleSubSlot">
+    <p v-if="titleSub" class="user-page-title-sub">{{ titleSub }}</p>
+    <div v-if="isShowTitleSubSlot" class="user-page-title-sub">
       <slot name="titleSub"></slot>
     </div>
   </div>
