@@ -4,7 +4,7 @@
       <div class="page-slogan">做一枚 <RotatingText :words="words" width="2em" /> 的前端</div>
       <div class="page-slogan-sub">To be a <RotatingText :words="words2" width="3.8em" /> front-end developer</div>
       <div class="banner-btn-wrap">
-        <Btn theme="success" shape="circle" size="large" class="banner-btn" icon="github">Github</Btn>
+        <Btn theme="success" shape="circle" size="large" class="banner-btn" icon="github" @click="handleGoGithub">Github</Btn>
         <Btn shape="circle" size="large" ghost class="banner-btn" :to="{ path: '/article' }">进入博客</Btn>
       </div>
     </BillBoard>

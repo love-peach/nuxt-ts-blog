@@ -47,7 +47,7 @@ module.exports = {
    */
   loading: {
     color: '#19be6b',
-    height: '5px',
+    height: '3px',
   },
   /*
    ** Global CSS
@@ -56,7 +56,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/axios', '~/plugins/filters.js', '~/plugins/api-repositories.js', { src: '~/plugins/storeCache', ssr: false }],
+  plugins: ['~/plugins/axios', '~/plugins/filters.js', '~/plugins/api-repositories.js', { src: '~/plugins/storeCache', ssr: false }, { src: '~/plugins/directive/loading/index.js', ssr: false }],
   /*
    ** Nuxt.js dev-modules
    */

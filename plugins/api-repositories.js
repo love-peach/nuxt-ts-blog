@@ -12,6 +12,7 @@ export default ({ $axios }, inject) => {
     resources: repositoryWithAxios('/api/resources'),
     comments: repositoryWithAxios('/api/comments'),
     replys: repositoryWithAxios('/api/replys'),
+    ebooks: repositoryWithAxios('/api/ebooks'),
   };
 
   inject('myApi', repositories);

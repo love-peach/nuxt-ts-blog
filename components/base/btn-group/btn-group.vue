@@ -7,6 +7,8 @@
 <style lang="less">
 .z-btn-group {
   display: inline-block;
+  font-size: 0;
+  vertical-align: middle;
   .z-btn {
     &:first-child {
       border-top-right-radius: 0;

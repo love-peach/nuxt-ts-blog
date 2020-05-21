@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="z-container">
-      <MovieHomeList :title="beingShownData.title" :list="beingShownList">
+      <MovieHomeList v-loading="isBeingShownLoading" :title="beingShownData.title" :list="beingShownList">
         <div style="width: 320px;float: right;">
           <SearchMovie></SearchMovie>
         </div>
       </MovieHomeList>
-      <MovieHomeList :title="rankingNewData.title" :list="rankingNewList" />
-      <MovieHomeList :title="rankingComingData.title" :list="rankingComingList" />
-      <MovieHomeList :title="ranking250Data.title" :list="ranking250List">
+      <MovieHomeList v-loading="isRankingNewLoading" :title="rankingNewData.title" :list="rankingNewList" />
+      <MovieHomeList v-loading="isRankingComingLoading" :title="rankingComingData.title" :list="rankingComingList" />
+      <MovieHomeList v-loading="isRanking250Loading" :title="ranking250Data.title" :list="ranking250List">
         <Button theme="success" :to="{ path: '/movie/top250' }" icon="danxuanfill">更多</Button>
       </MovieHomeList>
     </div>
@@ -70,6 +70,11 @@ export default Vue.extend({
     },
   },
   async mounted() {
+    this.isBeingShownLoading = true;
+    this.isRankingNewLoading = true;
+    this.isRankingComingLoading = true;
+    this.isRanking250Loading = true;
+
     const [res1, res2, res3, res4] = await Promise.all([
       doubanApi.DoubanMovieBeingShown({ count: 10 }),
       doubanApi.DoubanMovieRankingNew({ count: 10 }),
@@ -80,6 +85,11 @@ export default Vue.extend({
     this.rankingNewData = res2;
     this.rankingComingData = res3;
     this.ranking250Data = res4;
+
+    this.isBeingShownLoading = false;
+    this.isRankingNewLoading = false;
+    this.isRankingComingLoading = false;
+    this.isRanking250Loading = false;
   },
   head() {
     return {

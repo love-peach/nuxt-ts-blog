@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login-control-wrap">
     <div v-if="userInfo" class="dropdown-menu-wrap">
       <Zbtn theme="success" size="small" shape="circle" icon="user" :to="{ path: '/user' }">{{ userInfo.nicName || userInfo.userName }}</Zbtn>
       <div :class="['dropdown-menu', `dropdown-menu-${theme}`]">
@@ -78,6 +78,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.login-control-wrap {
+  height: @heightHeader;
+}
 .dropdown-menu-wrap {
   position: relative;
   .dropdown-menu {
