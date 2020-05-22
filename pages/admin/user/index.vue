@@ -18,7 +18,7 @@
         <input v-if="editMode === 'add'" v-model="formData.confirmPassword" class="common-input" type="password" placeholder="确认密码" />
       </div>
       <div slot="footer">
-        <Btn theme="primary" long @click="handleSubmitUser">{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</Btn>
+        <Btn theme="primary" long :loading="isAddLoading || isEditLoading" @click="handleSubmitUser">{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</Btn>
       </div>
     </Modal>
 

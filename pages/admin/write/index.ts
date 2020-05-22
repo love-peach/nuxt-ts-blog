@@ -29,6 +29,7 @@ export default Vue.extend({
       isBlogDetailLoading: false,
       formData: {
         poster: '',
+        status: true,
       },
       isTagLoading: false,
       articleId: this.$route.query.articleId,

@@ -15,7 +15,7 @@
         <input v-model="formData.value" class="common-input" type="text" placeholder="标签值" />
       </div>
       <div slot="footer">
-        <Btn theme="primary" long @click="handleSubmitTag">{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</Btn>
+        <Btn theme="primary" long :loading="isAddLoading || isEditLoading" @click="handleSubmitTag">{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</Btn>
       </div>
     </Modal>
 

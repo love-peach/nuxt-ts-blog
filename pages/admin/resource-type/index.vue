@@ -14,7 +14,7 @@
         <input v-model="formData.name" class="common-input" type="text" placeholder="资源类别名称" />
       </div>
       <div slot="footer">
-        <Btn theme="primary" long @click="handleSubmitResourceType">{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</Btn>
+        <Btn theme="primary" long :loading="isEditLoading || isAddLoading" @click="handleSubmitResourceType">{{ editMode === 'edit' ? '确认修改' : '确认添加' }}</Btn>
       </div>
     </Modal>
 
