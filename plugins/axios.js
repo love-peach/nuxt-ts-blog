@@ -41,8 +41,14 @@ export default function(ctx) {
     }
   });
 
-  $axios.onResponseError(response => {
-    if (response && response.status === 401) {
+  // $axios.onResponseError(response => {});
+
+  $axios.onError(error => {
+    app.$toast.show(error.message);
+
+    console.log(error, 'error');
+
+    if (error && error.status === 401) {
       app.$toast.error('登录过期了');
       sessionStorage.clear();
       store.dispatch('common/changeUserInfo', null);
@@ -50,9 +56,5 @@ export default function(ctx) {
 
       // store.dispatch('common/toggleSignInModal', true);
     }
-  });
-
-  $axios.onError(error => {
-    app.$toast.show(error.message);
   });
 }
