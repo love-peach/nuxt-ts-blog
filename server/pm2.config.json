@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "blog-front-ssr",
+      "script": "./server/index.js",
+      "instances": 0,
+      "watch": false,
+      "exec_mode": "cluster_mode"
+    }
+  ]
+}
