@@ -1,4 +1,5 @@
 import Icon from '@/components/base/icon/';
+import doubanApi from '@/assets/js/douban/api-douban';
 
 let timer: any = null;
 
@@ -24,7 +25,7 @@ export default {
         q: this.searchWord,
       };
       this.isSearchLoading = true;
-      this.$doubanApi
+      doubanApi
         .DoubanMovieSearch(params)
         .then((res: any) => {
           this.isSearchLoading = false;

@@ -49,12 +49,33 @@ export default Vue.extend({
   data() {
     return {
       isLoading: false,
-      movieDetail: {},
+      movieDetail: {
+        original_title: '电影名称',
+        year: '年份',
+        summary: '一部好的电影，一般都会有个不错的故事。一部好的电影，一般都会有个不错的故事。一部好的电影，一般都会有个不错的故事。一部好的电影，一般都会有个不错的故事。',
+        popular_reviews: [
+          {
+            alt: '',
+            author: {
+              uid: 'xxx',
+              avatar: 'xxx',
+              id: '37142357',
+              name: 'xx',
+              signature: 'xxxxxxx',
+            },
+            id: '10269983',
+            rating: { max: 5, value: 5, min: 0 },
+            subject_id: 'xx',
+            summary: '这是我的评论',
+            title: '评论',
+          },
+        ],
+      },
     };
   },
   computed: {
     videoUrl() {
-      const trailerUrls = this.movieDetail.trailerUrls;
+      const trailerUrls = this.movieDetail.trailer_urls;
       if (trailerUrls && trailerUrls.length > 0) {
         return trailerUrls[0];
       }

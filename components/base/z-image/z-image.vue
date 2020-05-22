@@ -20,7 +20,7 @@ export default {
   width: 100%;
   font-size: 0;
   vertical-align: middle;
-  background-image: url('/image/movie-gray.png');
+  background-image: url('/movie-gray.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 40%;

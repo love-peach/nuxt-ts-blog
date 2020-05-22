@@ -167,7 +167,7 @@ export default {
     border-radius: 5px 0 0 5px;
   }
   &-info {
-    padding: 15px 20px 0 0;
+    padding: 10px 20px 0 0;
     position: relative;
     &-title {
       font-size: 18px;
