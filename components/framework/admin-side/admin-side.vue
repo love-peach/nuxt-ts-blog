@@ -1,6 +1,6 @@
 <template>
   <div class="admin-side-wrap">
-    <router-link to="/admin" active-class="current" class="admin-side-brand">
+    <router-link to="/" active-class="current" class="admin-side-brand">
       <Icon type="logo" :size="166" />
     </router-link>
     <div class="admin-side-menu">
