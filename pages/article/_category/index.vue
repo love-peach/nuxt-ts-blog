@@ -87,6 +87,11 @@ export default Vue.extend({
       this.$router.push({ path: '/article/search', query: { keyword } });
     },
   },
+  head() {
+    return {
+      title: `前端文章 分类列表 ${this.$route.params.category}`,
+    };
+  },
 });
 </script>
 

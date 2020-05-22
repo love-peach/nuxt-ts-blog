@@ -57,6 +57,11 @@ export default {
       resourceList: [],
     };
   },
+  head() {
+    return {
+      title: '前端资源',
+    };
+  },
 };
 </script>
 

@@ -1,7 +1,7 @@
 {
   "name": "nuxt-ts-blog",
   "version": "1.0.0",
-  "description": "My ace Nuxt.js project",
+  "description": "采用 nuxt 搭建的 ssr 个人博客。",
   "author": "张晋佩",
   "private": true,
   "scripts": {

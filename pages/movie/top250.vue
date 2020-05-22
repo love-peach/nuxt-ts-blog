@@ -127,6 +127,12 @@ export default {
       this.requestTop250();
     },
   },
+  head() {
+    return {
+      title: '豆瓣电影TOP250',
+      meta: [{ hid: 'movie-top250 referrer', name: 'referrer', content: 'never' }],
+    };
+  },
 };
 </script>
 

@@ -52,6 +52,11 @@ export default {
   data() {
     return {};
   },
+  head() {
+    return {
+      title: '用户中心',
+    };
+  },
 };
 </script>
 

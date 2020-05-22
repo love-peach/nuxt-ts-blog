@@ -227,4 +227,9 @@ export default Vue.extend({
       }
     },
   },
+  head() {
+    return {
+      title: `${this.blogResult.title} 详情页`,
+    };
+  },
 });

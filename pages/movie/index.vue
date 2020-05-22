@@ -93,8 +93,8 @@ export default Vue.extend({
   },
   head() {
     return {
-      title: this.title,
-      meta: [{ name: 'referrer', content: 'never' }],
+      title: '豆瓣电影',
+      meta: [{ hid: 'movie-home referrer', name: 'referrer', content: 'never' }],
     };
   },
 });

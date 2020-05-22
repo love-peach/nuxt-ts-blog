@@ -109,6 +109,12 @@ export default Vue.extend({
         });
     },
   },
+  head() {
+    return {
+      title: `豆瓣电影${this.movieDetail.original_title}`,
+      meta: [{ hid: 'movie-detail referrer', name: 'referrer', content: 'never' }],
+    };
+  },
 });
 </script>
 

@@ -132,6 +132,11 @@ export default Vue.extend({
       this.requestblogList();
     },
   },
+  head() {
+    return {
+      title: '前端文章搜索结果',
+    };
+  },
 });
 </script>
 

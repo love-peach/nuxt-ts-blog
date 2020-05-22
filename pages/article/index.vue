@@ -80,6 +80,11 @@ export default Vue.extend({
       this.$router.push({ path: '/article/search', query: { keyword } });
     },
   },
+  head() {
+    return {
+      title: '前端文章',
+    };
+  },
 });
 </script>
 

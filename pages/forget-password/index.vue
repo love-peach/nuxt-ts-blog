@@ -68,6 +68,11 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: '忘记密码',
+    };
+  },
 };
 </script>
 
