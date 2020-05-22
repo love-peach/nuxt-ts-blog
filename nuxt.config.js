@@ -101,7 +101,7 @@ module.exports = {
    */
   proxy: {
     '/api/': {
-      target: process.env.NODE_ENV === 'production' ? 'https://zhangjinpei.cn' : 'http://localhost:3000/',
+      target: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/' : 'http://localhost:3000/',
       changeOrigin: true,
     },
     '/douban/': {
