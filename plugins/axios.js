@@ -26,9 +26,9 @@ export default function(ctx) {
     return config;
   });
 
-  // $axios.onRequestError(error => {
-  //   console.log('onRequestError', error);
-  // });
+  $axios.onRequestError(error => {
+    console.log('onRequestError', error);
+  });
 
   $axios.onResponse(res => {
     // 如果 后端返回的码正常 则 将 res.data 返回
@@ -41,20 +41,22 @@ export default function(ctx) {
     }
   });
 
-  // $axios.onResponseError(response => {});
+  $axios.onResponseError(error => {
+    console.log('onResponseError', error);
+  });
 
   $axios.onError(error => {
-    app.$toast.show(error.message);
+    console.log('onError', error);
 
-    console.log(error, 'error');
-
-    if (error && error.status === 401) {
+    if (error && error.message.indexOf('401') > 1) {
       app.$toast.error('登录过期了');
       sessionStorage.clear();
       store.dispatch('common/changeUserInfo', null);
       store.dispatch('common/changeToken', '');
 
       // store.dispatch('common/toggleSignInModal', true);
+    } else {
+      app.$toast.show(error.message);
     }
   });
 }
