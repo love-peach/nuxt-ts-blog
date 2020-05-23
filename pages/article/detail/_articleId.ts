@@ -234,6 +234,7 @@ export default Vue.extend({
   head() {
     return {
       title: `${this.blogResult.title} 详情页`,
+      meta: [{ hid: 'article-detail referrer', name: 'referrer', content: 'never' }],
     };
   },
 });
