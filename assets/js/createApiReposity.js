@@ -25,13 +25,14 @@ export default $axios => resource => {
   if (resource.indexOf('users') > 0) {
     api.PostUserLogin = payload => $axios.$post(`${resource}/signin`, payload);
     api.PostUserSignout = payload => $axios.$post(`${resource}/signout`, payload);
+    api.PostUserSignup = payload => $axios.$post(`${resource}/signup`, payload),
     api.PostForgetPwd = payload => $axios.$post(`${resource}/forgetPwd`, payload);
     api.PostChangePwd = payload => $axios.$post(`${resource}/changePwd`, payload);
   }
   if (resource.indexOf('ebooks') > 0) {
     api = {
       // 关键字查询书籍
-      getBookByWd: (params, options) => $axios.$get(`${resource}/search?wd=${params.wd}`, null, options),
+      getBookByWd: (params, options) => $axios.$get(`${resource}/search?wd=${params.wd}`, null, options),
 
       // 获取分类书籍
       getCategoryBook: (params, options) => $axios.$get(`${resource}/category/${params.categoryName}`, null, options),

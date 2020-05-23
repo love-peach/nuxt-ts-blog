@@ -64,6 +64,9 @@ export default Vue.extend({
     ...mapGetters('common', {
       userInfo: 'getUserInfo',
     }),
+    authorObj() {
+      return this.blogResult.authorObj || {};
+    },
     isLiked() {
       const likes = this.blogResult.likes;
       if (likes && likes.length > 0 && this.userInfo && this.userInfo._id) {
@@ -107,6 +110,7 @@ export default Vue.extend({
      * @desc 评论发表成功 回调
      */
     handleCommentsSuccess() {
+      this.$toast.info('添加评论成功，需要通过审核！')
       this.requestCommentsList();
     },
 
@@ -195,7 +199,7 @@ export default Vue.extend({
       this.$myApi.blogs
         .PostBlogUnLike(params)
         .then((res: any) => {
-          // this.$toast.warning('已取消赞！');
+          // this.$toast.error('已取消赞！');
           this.blogResult.likes = res.result.likes;
           this.isLikeLoading = false;
         })

@@ -97,14 +97,14 @@ export default Vue.extend({
      * @desc 上传 格式出错
      */
     handleFormatError(file: any) {
-      this.$toast.warning(`文件 ${file.name} 格式不对, 请选择 jpg or png.`, { duration: 4000 });
+      this.$toast.error(`文件 ${file.name} 格式不对, 请选择 jpg or png.`, { duration: 4000 });
     },
 
     /**
      * @desc 上传 大小限制
      */
     handleMaxSize(file: any) {
-      this.$toast.warning(`文件 ${file.name} 太大, 不可超过2M`);
+      this.$toast.error(`文件 ${file.name} 太大, 不可超过2M`);
     },
 
     /**
@@ -128,9 +128,11 @@ export default Vue.extend({
         this.$toast.error('请选择文章分类');
       } else if (!tag) {
         this.$toast.error('请选择文章标签');
-      } else if (!poster) {
-        this.$toast.error('请选择文章海报');
-      } else if (!content) {
+      }
+      // else if (!poster) {
+      //   this.$toast.error('请选择文章海报');
+      // }
+      else if (!content) {
         this.$toast.error('请填写文章内容');
       } else {
         return true;

@@ -119,7 +119,7 @@ export default {
       this.$myApi.blogs
         .PostBlogUnLike(params)
         .then(() => {
-          this.$toast.warning('已取消赞！');
+          this.$toast.error('已取消赞！');
           this.requestblogList();
           this.isUnLikeLoading = false;
           this.handleHideUnlikeModal();

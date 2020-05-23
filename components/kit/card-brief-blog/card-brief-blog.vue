@@ -1,7 +1,7 @@
 <template>
   <Card :padding="0">
     <div class="card-brief-blog-wrap">
-      <div class="brief-poster" :style="{ 'background-image': blogResult.poster ? 'url(' + blogResult.poster + ')' : '' }"></div>
+      <div class="brief-poster" :style="{ 'background-image': 'url(' + bgSrc + ')' }"></div>
       <div class="author-avatar">
         <div class="author-avatar-box" :style="{ 'background-image': 'url(' + avatarUrl + ')' }"></div>
       </div>
@@ -27,6 +27,7 @@
 
 <script>
 import Card from '@/components/base/card/';
+import defaultAvatar from '@/assets/img/no-data-bg-colorful.png'
 
 export default {
   name: 'CardBriefBlog',
@@ -42,10 +43,19 @@ export default {
     },
   },
   computed: {
+    bgSrc() {
+      return this.blogResult.poster ? this.blogResult.poster : 'https://picsum.photos/290/180?image=' + this.getDate();
+    },
     avatarUrl() {
-      return this.blogResult.authorObj ? this.blogResult.authorObj.avatar : '';
+      return this.blogResult.authorObj ? this.blogResult.authorObj.avatar || defaultAvatar : defaultAvatar;
     },
   },
+  methods: {
+    getDate() {
+      const now = new Date();
+      return `${now.getMonth()}${now.getDate()}`;
+    }
+  }
 };
 </script>
 
