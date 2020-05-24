@@ -25,7 +25,7 @@ export default $axios => resource => {
   if (resource.indexOf('users') > 0) {
     api.PostUserLogin = payload => $axios.$post(`${resource}/signin`, payload);
     api.PostUserSignout = payload => $axios.$post(`${resource}/signout`, payload);
-    api.PostUserSignup = payload => $axios.$post(`${resource}/signup`, payload),
+    api.PostUserSignup = payload => $axios.$post(`${resource}/signup`, payload);
     api.PostForgetPwd = payload => $axios.$post(`${resource}/forgetPwd`, payload);
     api.PostChangePwd = payload => $axios.$post(`${resource}/changePwd`, payload);
   }

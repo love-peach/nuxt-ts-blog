@@ -7,12 +7,12 @@
         </FormItem>
       </div> -->
       <div class="z-col-15">
-        <FormItem label="评论内容" :labelWidth="80">
+        <FormItem label="评论内容" :label-width="80">
           <input v-model.trim="formData.content" class="form-item-input" type="text" />
         </FormItem>
       </div>
       <div class="z-col-18">
-        <FormItem label="状态" :labelWidth="80">
+        <FormItem label="状态" :label-width="80">
           <ZbtnGroup>
             <Zbtn v-for="(item, index) in statusList" :key="index" :theme="formData.status === item.value ? 'success' : 'default'" @click="handleChangeStatus(item.value)">
               {{ item.label }}
@@ -26,8 +26,8 @@
         </FormItem>
       </div> -->
       <div class="z-col-15">
-        <FormItem :labelWidth="0">
-          <slot v-bind:formData="formData"></slot>
+        <FormItem :label-width="0">
+          <slot :formData="formData"></slot>
         </FormItem>
       </div>
     </div>

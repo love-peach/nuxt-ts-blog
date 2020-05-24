@@ -27,7 +27,7 @@
 
 <script>
 import Card from '@/components/base/card/';
-import defaultAvatar from '@/assets/img/no-data-bg-colorful.png'
+import defaultAvatar from '@/assets/img/no-data-bg-colorful.png';
 
 export default {
   name: 'CardBriefBlog',
@@ -54,8 +54,8 @@ export default {
     getDate() {
       const now = new Date();
       return `${now.getMonth()}${now.getDate()}`;
-    }
-  }
+    },
+  },
 };
 </script>
 

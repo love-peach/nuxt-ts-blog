@@ -33,7 +33,7 @@ export default {
       this.commentId = '';
       this.toUserId = '';
       this.$emit('on-fresh');
-      this.$toast.info('回复成功')
+      this.$toast.info('回复成功');
     },
   },
 };

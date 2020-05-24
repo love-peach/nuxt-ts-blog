@@ -31,10 +31,10 @@
       </div>
     </Modal>
 
-    <Modal v-show="isShowPreviewModal" @close="handleHidePreviewModal" width="50%">
+    <Modal v-show="isShowPreviewModal" width="50%" @close="handleHidePreviewModal">
       <div slot="body">
         <div style="max-height:500px;overflow: auto;">
-         <img :src="previewImgUrl" alt="" style="width:100%;">
+          <img :src="previewImgUrl" alt="" style="width:100%;" />
         </div>
       </div>
     </Modal>
