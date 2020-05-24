@@ -246,4 +246,10 @@ export default {
         });
     },
   },
+  head() {
+    return {
+      // title: `${this.blogResult.title} 详情页`,
+      meta: [{ hid: 'ebook-home referrer', name: 'referrer', content: 'never' }],
+    };
+  },
 };

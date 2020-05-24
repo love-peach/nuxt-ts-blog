@@ -2,6 +2,7 @@ import qs from 'qs';
 
 export default function(ctx) {
   const { $axios, store, app } = ctx;
+  // $axios.defaults.timeout = 0;
 
   $axios.transformRequest = [
     (data, header) => {
