@@ -47,7 +47,7 @@ export default {
       return this.blogResult.poster ? this.blogResult.poster + '?x-oss-process=image/resize,m_fill,h_180,w_290' : 'https://picsum.photos/290/180?image=' + this.getDate();
     },
     avatarUrl() {
-      return this.blogResult.authorObj ? this.blogResult.authorObj.avatar + '?x-oss-process=image/resize,m_fill,h_110,w_110' || defaultAvatar : defaultAvatar;
+      return this.blogResult.authorObj && this.blogResult.authorObj.avatar ? this.blogResult.authorObj.avatar + '?x-oss-process=image/resize,m_fill,h_110,w_110' : defaultAvatar;
     },
   },
   methods: {

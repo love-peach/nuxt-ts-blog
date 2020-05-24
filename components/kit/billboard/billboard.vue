@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     bgSrc() {
-      return this.poster ? `${this.poster.indexOf('?') ? this.poster + '&' : this.poster + '?'}x-oss-process=image/resize,m_fill,h_250,w_900/blur,r_25,s_50` : 'https://picsum.photos/1280/240?image=' + this.getDate();
+      return this.poster || 'https://picsum.photos/1280/240?image=' + this.getDate();
     },
     wrapStyles() {
       return {

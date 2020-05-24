@@ -5,7 +5,7 @@ function guid() {
   return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
 }
 export default {
-  name: 'billboard',
+  name: 'rotatingText',
   props: {
     words: {
       type: Array,
