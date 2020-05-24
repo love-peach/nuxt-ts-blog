@@ -4,7 +4,7 @@
     <div class="billboard-box">
       <div class="billboard-inner">
         <h1 v-if="title" class="billboard-inner-slogan">{{ title }}</h1>
-        <p v-if="titleSub" class="billboard-inner-slogan-sub">{{ titleSub }}{{ poster }}</p>
+        <p v-if="titleSub" class="billboard-inner-slogan-sub">{{ titleSub }}</p>
         <slot></slot>
       </div>
     </div>
