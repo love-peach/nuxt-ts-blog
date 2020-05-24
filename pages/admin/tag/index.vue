@@ -8,7 +8,7 @@
       <Pagenation :all="pageTotal" :cur="page" :callback="handleChangePage" style="margin-top: 20px;" />
     </ZPanel>
 
-    <Modal v-if="isShowTagModal" @close="handleHideTagModal">
+    <Modal v-show="isShowTagModal" @close="handleHideTagModal">
       <h3 slot="header">{{ editMode === 'edit' ? '修改标签' : '添加标签' }}</h3>
       <div slot="body">
         <input v-model="formData.name" class="common-input" type="text" placeholder="标签显示名称" />
@@ -19,7 +19,7 @@
       </div>
     </Modal>
 
-    <Modal v-if="isShowDeleteModal" @close="handleHideDeleteModal">
+    <Modal v-show="isShowDeleteModal" @close="handleHideDeleteModal">
       <h3 slot="header">确认删除?</h3>
       <div slot="body">
         <p>确认删除名为 {{ currentRow.name }} 的标签吗?</p>

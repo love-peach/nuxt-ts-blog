@@ -8,7 +8,7 @@
       <Pagenation :all="pageTotal" :cur="page" :callback="handleChangePage" style="margin-top: 20px;" />
     </ZPanel>
 
-    <Modal v-if="isShowResourceTypeModal" @close="handleHideResourceTypeModal">
+    <Modal v-show="isShowResourceTypeModal" @close="handleHideResourceTypeModal">
       <h3 slot="header">{{ editMode === 'edit' ? '修改资源类别' : '添加资源类别' }}</h3>
       <div slot="body">
         <input v-model="formData.name" class="common-input" type="text" placeholder="资源类别名称" />
@@ -18,7 +18,7 @@
       </div>
     </Modal>
 
-    <Modal v-if="isShowDeleteModal" @close="handleHideDeleteModal">
+    <Modal v-show="isShowDeleteModal" @close="handleHideDeleteModal">
       <h3 slot="header">确认删除?</h3>
       <div slot="body">
         <p>确认删除名为 {{ currentRow.name }} 的资源类别吗?</p>

@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     bgSrc() {
-      return this.poster || 'https://picsum.photos/1280/240?image=' + this.getDate();
+      return this.poster ? this.poster + '?x-oss-process=image/resize,m_fill,h_250,w_900/blur,r_25,s_50' : 'https://picsum.photos/1280/240?image=' + this.getDate();
     },
     wrapStyles() {
       return {
@@ -45,7 +45,7 @@ export default {
     posterStyles() {
       return {
         backgroundImage: `url(${this.bgSrc})`,
-        filter: typeof this.height === 'number' ? `blur(${this.posterBlue}px)` : `blur(${this.posterBlue})`,
+        // filter: typeof this.height === 'number' ? `blur(${this.posterBlue}px)` : `blur(${this.posterBlue})`,
         top: typeof this.height === 'number' ? `-${this.posterBlue}px` : `-${this.posterBlue}`,
         bottom: typeof this.height === 'number' ? `-${this.posterBlue}px` : `-${this.posterBlue}`,
         left: typeof this.height === 'number' ? `-${this.posterBlue}px` : `-${this.posterBlue}`,

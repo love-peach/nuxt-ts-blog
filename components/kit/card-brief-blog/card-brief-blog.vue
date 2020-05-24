@@ -44,10 +44,10 @@ export default {
   },
   computed: {
     bgSrc() {
-      return this.blogResult.poster ? this.blogResult.poster : 'https://picsum.photos/290/180?image=' + this.getDate();
+      return this.blogResult.poster ? this.blogResult.poster + '?x-oss-process=image/resize,m_fill,h_180,w_290' : 'https://picsum.photos/290/180?image=' + this.getDate();
     },
     avatarUrl() {
-      return this.blogResult.authorObj ? this.blogResult.authorObj.avatar || defaultAvatar : defaultAvatar;
+      return this.blogResult.authorObj ? this.blogResult.authorObj.avatar + '?x-oss-process=image/resize,m_fill,h_110,w_110' || defaultAvatar : defaultAvatar;
     },
   },
   methods: {

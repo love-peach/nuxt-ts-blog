@@ -31,6 +31,8 @@ export default {
       isAddLoading: false,
       isEditLoading: false,
       isDeleteLoading: false,
+      isShowPreviewModal: false,
+      previewImgUrl: '',
       currentRow: {},
       isShowDeleteModal: false,
       isShowResourceModal: false,
@@ -53,6 +55,12 @@ export default {
               },
               style: {
                 width: '80px',
+                cursor: 'pointer'
+              },
+              on: {
+                click: () => {
+                  this.handlePreviewImg(params.row.posterUrl);
+                },
               },
             });
           },
@@ -358,6 +366,32 @@ export default {
       } else {
         this.requestAddResource();
       }
+    },
+
+    /**
+     * @desc 预览资源首页截图
+     */
+    handlePreviewImg(url: string) {
+      this.previewImgUrl = url;
+      this.handleShowPreviewModal();
+    },
+
+     /**
+     * @desc 显示预览图片弹框
+     */
+    handleShowPreviewModal() {
+      this.isShowPreviewModal = true;
+    },
+
+    /**
+     * @desc 隐藏预览图片弹框
+     */
+    handleHidePreviewModal() {
+      this.isShowPreviewModal = false;
+      setTimeout(() => {
+        this.previewImgUrl = '';
+      }, 300);
+
     },
 
     /**

@@ -11,7 +11,7 @@
           <input v-model.trim="formData.content" class="form-item-input" type="text" />
         </FormItem>
       </div>
-      <div class="z-col-15">
+      <div class="z-col-18">
         <FormItem label="状态" :labelWidth="80">
           <ZbtnGroup>
             <Zbtn v-for="(item, index) in statusList" :key="index" :theme="formData.status === item.value ? 'success' : 'default'" @click="handleChangeStatus(item.value)">

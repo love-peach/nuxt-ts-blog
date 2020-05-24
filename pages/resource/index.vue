@@ -7,7 +7,7 @@
           <div v-for="resourceItem in resource.resource" :key="resourceItem._id" class="resource-item-wrap z-col-xl-12 z-col-lg-15 z-col-md-20 z-col-sm-30 z-col-xs-30">
             <Card padding="0">
               <a class="resource-item-link no-img-placeholder-colorful no-img-placeholder-horizon" :href="resourceItem.url" target="_blank">
-                <img :src="resourceItem.posterUrl" alt="" class="resource-item-poster" />
+                <img :src="resourceItem.posterUrl + '&x-oss-process=image/resize,m_fill,h_137,w_230'" alt="" class="resource-item-poster" />
               </a>
               <div class="resource-info-wrap">
                 <h4 class="resource-header">{{ resourceItem.name }}</h4>

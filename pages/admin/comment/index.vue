@@ -12,13 +12,13 @@
       <Pagenation :all="pageTotal" :cur="page" :callback="changePage" style="margin-top: 20px;" />
     </ZPanel>
 
-    <Modal v-if="isShowReplyModal" width="50%" @close="handleHideReplyModal">
+    <Modal v-show="isShowReplyModal" width="50%" @close="handleHideReplyModal">
       <div slot="body">
         <ZTable :columns="columnsRepay" :data="currentRow.reply" />
       </div>
     </Modal>
 
-    <Modal v-if="isShowDeleteModal" @close="handleHideDeleteCommentModal">
+    <Modal v-show="isShowDeleteModal" @close="handleHideDeleteCommentModal">
       <h3 slot="header">确认删除?</h3>
       <div slot="body">
         <p>确认删除吗？删除后，不可恢复！</p>

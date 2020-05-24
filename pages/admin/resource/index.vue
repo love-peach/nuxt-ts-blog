@@ -8,7 +8,7 @@
       <Pagenation :all="pageTotal" :cur="page" :callback="handleChangePage" style="margin-top: 20px;" />
     </ZPanel>
 
-    <Modal v-if="isShowResourceModal" @close="handleHideResourceModal">
+    <Modal v-show="isShowResourceModal" @close="handleHideResourceModal">
       <h3 slot="header">{{ editMode === 'edit' ? '修改资源' : '添加资源' }}</h3>
       <div slot="body">
         <ZSelect v-model="formData.resourceTypeId" placeholder="请选择文章分类" :options="resourceTypeList" label-key="name" value-key="_id"></ZSelect>
@@ -21,13 +21,21 @@
       </div>
     </Modal>
 
-    <Modal v-if="isShowDeleteModal" @close="handleHideDeleteModal">
+    <Modal v-show="isShowDeleteModal" @close="handleHideDeleteModal">
       <h3 slot="header">确认删除?</h3>
       <div slot="body">
         <p>确认删除名为 {{ currentRow.name }} 的资源吗?</p>
       </div>
       <div slot="footer">
         <Btn theme="error" long @click="requestDeleteResource">确认删除</Btn>
+      </div>
+    </Modal>
+
+    <Modal v-show="isShowPreviewModal" @close="handleHidePreviewModal" width="50%">
+      <div slot="body">
+        <div style="max-height:500px;overflow: auto;">
+         <img :src="previewImgUrl" alt="" style="width:100%;">
+        </div>
       </div>
     </Modal>
   </div>
