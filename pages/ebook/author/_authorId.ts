@@ -21,8 +21,15 @@ export default {
       authorWorks: [
         {
           poster: '',
-          bookId: 'xxx',
-          name: '书名',
+          bookId: '',
+          name: '书名1',
+          author: '作者',
+          brief: '作品介绍，作品介绍作品介绍作品介绍作品介绍，作品介绍作品介绍作品介绍作品介绍作品介绍。作品介绍，作品介绍作品介绍作品介绍作品介绍，作品介绍作品介绍作品介绍作品介绍作品介绍。',
+        },
+        {
+          poster: '',
+          bookId: '',
+          name: '书名2',
           author: '作者',
           brief: '作品介绍，作品介绍作品介绍作品介绍作品介绍，作品介绍作品介绍作品介绍作品介绍作品介绍。作品介绍，作品介绍作品介绍作品介绍作品介绍，作品介绍作品介绍作品介绍作品介绍作品介绍。',
         },
@@ -30,7 +37,8 @@ export default {
     };
   },
   mounted() {
-    this.getAuthorWorksList();
+    // this.getAuthorWorksList();
+    this.$toast.info('暂不支持关联作者, 可在搜索中搜索');
   },
   methods: {
     /**

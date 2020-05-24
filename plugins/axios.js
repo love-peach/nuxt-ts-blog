@@ -32,8 +32,12 @@ export default function(ctx) {
   });
 
   $axios.onResponse(res => {
+    // ["data", "status", "statusText", "headers", "config", "request"]
     // 如果 后端返回的码正常 则 将 res.data 返回
     if (res && res.data) {
+      if (res.headers['content-type'] === 'text/html') {
+        return res;
+      }
       if (res.data.code === 'success') {
         return res;
       } else {

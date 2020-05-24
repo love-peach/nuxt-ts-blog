@@ -1,25 +1,25 @@
 <template>
   <div style="margin-bottom: 15px;">
-    <TitleBar :title="dataSource.title.slice(0, -5)">
-      <template slot="titleRight">
+    <TitleBar :title="dataSource.title">
+      <!-- <template slot="titleRight">
         <ZBtn v-for="item in rankTableArr" :key="item.value" size="small" :theme="item.value === rankTableKey ? 'dashed' : 'text'" @click="handleChangeRankTableKey(item)">{{ item.label }}</ZBtn>
-      </template>
+      </template> -->
     </TitleBar>
-    <ZTable :columns="columns" :data="dataSource[rankTableKey]" size="small" :show-header="false" :border="false" />
+    <ZTable :columns="columns" :data="dataSource.list" size="small" :show-header="false" :border="false" />
   </div>
 </template>
 
 <script lang="ts">
 import TitleBar from '@/components/kit/title-bar/';
 import ZTable from '@/components/base/table/';
-import ZBtn from '@/components/base/btn/';
+// import ZBtn from '@/components/base/btn/';
 
 export default {
   name: 'EbookRankingPart',
   components: {
     TitleBar,
     ZTable,
-    ZBtn,
+    // ZBtn,
   },
   props: {
     dataSource: {

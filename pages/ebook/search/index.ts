@@ -1,3 +1,5 @@
+import qs from 'qs';
+
 import ZBtn from '@/components/base/btn/';
 import ZTable from '@/components/base/table/';
 
@@ -9,6 +11,7 @@ export default {
   },
   data() {
     return {
+      searchDataHtml: '',
       wd: '',
       isLoading: false,
       searchData: [],
@@ -90,15 +93,15 @@ export default {
             );
           },
         },
-        {
-          title: '更新时间',
-          key: 'updateTime',
-          align: 'center',
-          class: ['hidden-xs'],
-          render: (h: any, params: any) => {
-            return h('span', params.row.updateTime.split(' ')[0]);
-          },
-        },
+        // {
+        //   title: '更新时间',
+        //   key: 'updateTime',
+        //   align: 'center',
+        //   class: ['hidden-xs'],
+        //   render: (h: any, params: any) => {
+        //     return h('span', params.row.updateTime.split(' ')[0]);
+        //   },
+        // },
         // {
         //   title: '状态',
         //   key: 'status',
@@ -111,7 +114,7 @@ export default {
   },
   mounted() {
     if (this.$route.query.wd) {
-      this.$nuxt.$loading.start();
+      // this.$nuxt.$loading.start();
       this.getBookByWd();
     }
   },
@@ -128,12 +131,62 @@ export default {
      */
     getBookByWd() {
       this.isLoading = true;
+      // this.$myApi.ebooks
+      //   .getBookByWd({ wd: this.$route.query.wd })
+      //   .then((res: any) => {
+      //     this.isLoading = false;
+      //     this.searchData = res.result;
+      //     this.$nuxt.$loading.finish();
+      //   })
+      //   .catch(() => {
+      //     this.isLoading = false;
+      //   });
+
+      const params = qs.stringify({
+        searchkey: this.$route.query.wd,
+        s: '6445266503022880974',
+      });
+
       this.$myApi.ebooks
-        .getBookByWd({ wd: this.$route.query.wd })
+        .postSearch(params)
         .then((res: any) => {
           this.isLoading = false;
-          this.searchData = res.result;
-          this.$nuxt.$loading.finish();
+          this.searchDataHtml = res;
+
+          this.$nextTick(() => {
+            const element = this.$refs.searchEle;
+            const books = [...element.querySelectorAll('.bookbox')];
+
+            const searchData = books.map(ele => {
+              const categoryEle = ele.querySelector('.cat');
+              const bookEle = ele.querySelector('.bookname a');
+              const chapterEle = ele.querySelector('.update a');
+              const authorEle = ele.querySelector('.author');
+
+              const bookA = bookEle.href.split('.');
+              const bookAA = bookA[bookA.length - 2];
+              const bookAAA = bookAA.split('/');
+              const bookAAAA = bookAAA[bookAAA.length - 2];
+
+              const chapterA = chapterEle.href.split('.');
+              const chapterAA = chapterA[chapterA.length - 2];
+              const chapterAAA = chapterAA.split('/');
+              const chapterAAAA = chapterAAA[chapterAAA.length - 1];
+
+              return {
+                category: categoryEle.textContent,
+                author: authorEle.textContent,
+                name: bookEle.textContent,
+                bookId: bookAAAA,
+                lastChapter: chapterEle.textContent,
+                chapterId: chapterAAAA,
+              };
+            });
+            this.searchData = searchData;
+          });
+
+          // this.searchData = res.result;
+          // this.$nuxt.$loading.finish();
         })
         .catch(() => {
           this.isLoading = false;

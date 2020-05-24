@@ -1,9 +1,12 @@
 <template>
   <div class="book-poster-wrap">
     <div class="book-poster">
-      <router-link class="book-poster-link no-img-placeholder-colorful no-img-placeholder-vertical" :to="{ path: `/ebook/${dataSource.bookId}` }">
+      <router-link v-if="dataSource.bookId" class="book-poster-link no-img-placeholder-colorful no-img-placeholder-vertical" :to="{ path: `/ebook/${dataSource.bookId}` }">
         <img class="hotlist-item-poster" :src="dataSource.poster" alt="" />
       </router-link>
+      <div v-else class="book-poster-link no-img-placeholder-colorful no-img-placeholder-vertical">
+        <img class="hotlist-item-poster" :src="dataSource.poster" alt="" />
+      </div>
     </div>
   </div>
 </template>

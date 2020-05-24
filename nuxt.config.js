@@ -126,6 +126,13 @@ module.exports = {
         '^/doubanOld/': '',
       },
     },
+    '/ebookSearch/': {
+      target: 'http://www.shuquge.com/search.php',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/ebookSearch/': '',
+      },
+    },
   },
   /*
    ** Build configuration

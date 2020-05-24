@@ -7,11 +7,17 @@
         </div>
         <div class="book-baseinfo-main">
           <h2 class="book-baseinfo-main-name">{{ bookInfoData.name }}</h2>
-          <span class="book-baseinfo-main-author">
-            作者：
-            <router-link :to="{ path: `/ebook/author/${bookInfoData.authorId}` }">{{ bookInfoData.author }}</router-link>
-          </span>
-          <p class="book-baseinfo-main-update">最后更新：{{ bookInfoData.updateTime }}</p>
+          <p class="book-baseinfo-main-author">
+            {{ bookInfoData.author }}
+            <!-- <router-link :to="{ path: `/ebook/author/${bookInfoData.authorId}` }">{{ bookInfoData.author }}</router-link> -->
+          </p>
+          <p class="book-baseinfo-main-author">{{ bookInfoData.status }}</p>
+          <p class="book-baseinfo-main-author">{{ bookInfoData.count }}</p>
+          <p class="book-baseinfo-main-author">
+            最新章节：
+            <router-link :to="{ path: `/ebook/${$route.params.bookId}/${bookInfoData.chapterId}` }">{{ bookInfoData.lastChapter }}</router-link>
+          </p>
+          <p class="book-baseinfo-main-update">{{ bookInfoData.updateTime }}</p>
           <p class="book-baseinfo-main-brief">{{ bookInfoData.brief }}</p>
         </div>
       </div>

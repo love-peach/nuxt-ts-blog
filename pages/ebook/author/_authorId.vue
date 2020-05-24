@@ -1,6 +1,6 @@
 <template>
   <div class="z-container">
-    <div v-for="item in authorWorks" :key="item.bookId" class=" z-col-xs-30">
+    <div v-for="item in authorWorks" :key="item.bookId + item.name" class=" z-col-xs-30">
       <div v-loading="isLoading" class="works-item">
         <div class="works-item-poster">
           <EbookPoster :data-source="item" />
