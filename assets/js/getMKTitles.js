@@ -12,7 +12,7 @@ function getMKTitles(mkContent) {
     .replace(/\r|\n+/g, function() {
       return '\n';
     })
-    .replace(/(#+)[^\n]*?(?:\n)/g, function(match, m1) {
+    .replace(/(#+) [^\n]*?(?:\n)/g, function(match, m1) {
       const title = match.replace('\n', '');
       const level = m1.length;
       nav.push({
