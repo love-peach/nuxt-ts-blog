@@ -40,6 +40,7 @@
 .comments-list {
   position: relative;
   .comments-list-item {
+    list-style: none;
     padding: 15px;
   }
   .comments-list-item + .comments-list-item {

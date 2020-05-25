@@ -2,24 +2,28 @@
   <div class="app-layout-wrap">
     <AppHeader />
     <div class="app-content">
-      <router-view></router-view>
+      <slot></slot>
     </div>
     <AppFooter />
+
+    <SignIn />
+    <SignUp />
   </div>
 </template>
 
 <script>
 import AppHeader from '@/components/framework/app-header/';
 import AppFooter from '@/components/framework/app-footer/';
+import SignIn from '@/components/kit/sign-in/index.js';
+import SignUp from '@/components/kit/sign-up/index.js';
 
 export default {
   name: 'AppLayout',
   components: {
     AppHeader,
     AppFooter,
-  },
-  data() {
-    return {};
+    SignIn,
+    SignUp,
   },
 };
 </script>

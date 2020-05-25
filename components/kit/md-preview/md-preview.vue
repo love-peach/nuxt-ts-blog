@@ -1,13 +1,14 @@
 <template>
-  <div v-highlight class="markdown-body" :style="styles" v-html="articleHtml"></div>
+  <div v-highlight class="sspai" :style="styles" v-html="articleHtml"></div>
 </template>
 
 <script>
 import marked from 'marked';
 import highlight from 'highlight.js';
 
-import 'github-markdown-css/github-markdown.css';
-import 'highlight.js/styles/github-gist.css';
+// import 'github-markdown-css/github-markdown.css';
+import '@/assets/css/sspai.less'
+import 'highlight.js/styles/monokai-sublime.css';
 
 marked.setOptions({
   renderer: new marked.Renderer(),

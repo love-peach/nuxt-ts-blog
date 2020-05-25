@@ -64,6 +64,7 @@ export default {
     margin-bottom: 8px;
   }
   &-item {
+    list-style: none;
     // margin-bottom: @columns-padding * 2;
     &-poster-wrap {
       position: relative;
