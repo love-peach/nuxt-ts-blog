@@ -19,6 +19,7 @@
           </Card>
         </template>
         <CardNoData v-else style="height: 300px;" />
+        <Pagenation v-if="blogList && blogList.length > 0 && itemTotal > 10" :all="pageTotal" :cur="page" :callback="changePage" style="margin-top: 20px;" />
       </div>
       <div class="list-side z-col-md-18 z-col-xl-15">
         <Card class="search-wrap">
@@ -37,6 +38,7 @@ import TopicItem from '@/components/kit/topic-item/index.js';
 import CardNoData from '@/components/kit/card-no-data/';
 import SearchBlog from '@/components/kit/search-blog/';
 import FilterSelect from '@/components/kit/filter-select/index.js';
+import Pagenation from '@/components/base/pagenation/';
 
 const { mapGetters } = Vuex;
 
@@ -55,14 +57,22 @@ export default Vue.extend({
     CardNoData,
     SearchBlog,
     FilterSelect,
+    Pagenation,
   },
   async fetch({ store }: ctxProps) {
     await store.dispatch('common/requestTagList');
   },
   async asyncData({ app, query }: ctxProps) {
-    const res = await app.$myApi.blogs.index(query);
+    const params = {
+      page: 1,
+      limit: 10,
+      ...query,
+    };
+    const res = await app.$myApi.blogs.index(params);
     return {
       blogList: res.result.list,
+      pageTotal: res.result.pages,
+      itemTotal: res.result.total,
     };
   },
   data() {
@@ -70,6 +80,8 @@ export default Vue.extend({
       formData: {},
       page: 1,
       limit: 10,
+      pageTotal: 0,
+      itemTotal: 0,
       blogList: [],
       isLoading: false,
     };
@@ -108,6 +120,9 @@ export default Vue.extend({
         .index(params)
         .then((res: any) => {
           this.blogList = res.result.list;
+          this.pageTotal = res.result.pages;
+          this.itemTotal = res.result.total;
+          this.isLoading = false;
           this.isLoading = false;
         })
         .catch(() => {
@@ -116,10 +131,12 @@ export default Vue.extend({
     },
 
     handleChangeCategory() {
+      this.page = 1;
       this.requestblogList();
     },
 
     handleChangeTag() {
+      this.page = 1;
       this.requestblogList();
     },
 
@@ -129,6 +146,13 @@ export default Vue.extend({
     handleSearch(keyword: string) {
       this.page = 1;
       this.formData.keyword = keyword;
+      this.requestblogList();
+    },
+    /**
+     * @desc 分页点击
+     */
+    changePage(page: number) {
+      this.page = page;
       this.requestblogList();
     },
   },

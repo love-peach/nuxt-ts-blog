@@ -8,6 +8,7 @@
           </Card>
         </template>
         <CardNoData v-else style="height: 300px;" />
+        <Pagenation v-if="blogList && blogList.length > 0 && itemTotal > 10" :all="pageTotal" :cur="page" :callback="changePage" style="margin-top: 20px;" />
       </div>
       <div class="list-side z-col-md-18 z-col-xl-15">
         <Card class="search-wrap">
@@ -27,6 +28,7 @@ import Card from '@/components/base/card/';
 import CardNoData from '@/components/kit/card-no-data/';
 import CardCategory from '@/components/kit/card-category/';
 import SearchBlog from '@/components/kit/search-blog/';
+import Pagenation from '@/components/base/pagenation/';
 
 const { mapGetters } = Vuex;
 
@@ -44,6 +46,7 @@ export default Vue.extend({
     CardNoData,
     CardCategory,
     SearchBlog,
+    Pagenation,
   },
   async asyncData({ app, params, store }: ctxProps) {
     const categoryList: [] = store.getters['common/getCategoryList'];
@@ -63,12 +66,16 @@ export default Vue.extend({
 
     return {
       blogList: res.result.list,
+      pageTotal: res.result.pages,
+      itemTotal: res.result.total,
     };
   },
   data() {
     return {
       page: 1,
       limit: 10,
+      pageTotal: 0,
+      itemTotal: 0,
       blogList: [],
       isLoading: false,
     };
@@ -85,6 +92,39 @@ export default Vue.extend({
      */
     handleSearch(keyword: string): void {
       this.$router.push({ path: '/article/search', query: { keyword } });
+    },
+
+    /**
+     * @desc 分页点击
+     */
+    changePage(page: number) {
+      this.page = page;
+      this.requestblogList();
+    },
+
+    /**
+     * @desc 请求分页数据
+     */
+    requestblogList() {
+      const category = this.$store.getters['common/getCategoryIdByValue'](this.$route.params.category);
+
+      const params = {
+        page: this.page,
+        limit: this.limit,
+        category,
+      };
+      this.isLoading = true;
+      this.$myApi.blogs
+        .index(params)
+        .then((res: any) => {
+          this.blogList = res.result.list;
+          this.pageTotal = res.result.pages;
+          this.itemTotal = res.result.total;
+          this.isLoading = false;
+        })
+        .catch(() => {
+          this.isLoading = false;
+        });
     },
   },
   head() {
