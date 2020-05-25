@@ -22,7 +22,7 @@
               </section-card>
             </div>
             <div class="z-col-sm-30 z-col-md-30 z-col-lg-12">
-              <section-card title="前端资源" icon="link" theme="info" path="/resources">
+              <section-card title="前端资源" icon="link" theme="info" path="/resource">
                 <div>
                   前端添加资源链接，后台通过 puppeteer 截取网站屏幕，上传 ali-oss 阿里云。
                 </div>
@@ -286,6 +286,7 @@
     border-radius: 10px;
 
     li {
+      list-style: none;
       padding: 8px 10px 8px 8px;
       text-align: right;
       color: #fff;
@@ -432,6 +433,7 @@
   .contact-list-item {
     float: left;
     width: 25%;
+    list-style: none;
     text-align: center;
   }
   .contact-list-item-link {

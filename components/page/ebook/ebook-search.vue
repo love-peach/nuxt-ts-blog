@@ -2,7 +2,7 @@
   <div class="ebook-search-wrap">
     <div class="ebook-search">
       <div class="ebook-search-input-box">
-        <input v-model="wd" class="ebook-search-input" type="text" placeholder="搜索书名或作者" />
+        <input v-model="wd" class="ebook-search-input" type="text" placeholder="搜索书名或作者" @keyup.enter="handleEnter" />
       </div>
       <div class="ebook-search-btn-box">
         <ZBtn theme="error" shape="rect" icon="search" @click="handleSearch"></ZBtn>
@@ -30,6 +30,12 @@ export default {
      */
     handleSearch() {
       this.$router.push({ path: `/ebook/search?wd=${this.wd}` });
+    },
+
+    handleEnter() {
+      if (this.wd) {
+        this.handleSearch();
+      }
     },
   },
 };

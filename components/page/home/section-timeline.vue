@@ -38,6 +38,7 @@ export default {
   &-item {
     position: relative;
     padding-left: 30px;
+    list-style: none;
     &::after {
       content: '';
       position: absolute;
