@@ -4,7 +4,7 @@
     <div class="comment-target">
       <span>{{ comment.createdAt | dateFormatFilter('YYYY-MM-DD HH:mm:ss') }}</span>
       <span style="margin: 0 5px;">评论于</span>
-      <router-link v-if="comment.blogObj" class="comment-blog-link" :to="{ path: `/blog/detail/${comment.blogObj._id}` }">{{ comment.blogObj.title }}</router-link>
+      <router-link v-if="comment.blogObj" class="comment-blog-link" :to="{ path: `/article/detail/${comment.blogObj._id}` }">{{ comment.blogObj.title }}</router-link>
     </div>
   </div>
 </template>

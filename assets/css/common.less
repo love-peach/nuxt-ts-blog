@@ -44,6 +44,12 @@ a {
 /*==== 电子书 章节链接样式 =====*/
 .ebook-chapter-link {
   color: @colorTextSub;
+  max-width: 350px;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: bottom;
   &:hover {
     color: @colorTextContent;
   }

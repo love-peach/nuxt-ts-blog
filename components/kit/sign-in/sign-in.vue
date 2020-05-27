@@ -1,9 +1,9 @@
 <template>
   <modal v-if="isShowSignInModal" @close="handleCloseModel">
     <h3 slot="header">登录</h3>
-    <div slot="body">
-      <input v-model="formData.account" class="common-input" type="text" placeholder="用户名" style="width: 100%" />
-      <input v-model="formData.password" class="common-input" type="password" placeholder="密码" style="width: 100%" />
+    <div slot="body" @keyup.enter="login">
+      <input v-model="formData.account" class="common-input" type="text" placeholder="用户名" style="width: 100%" @keyup.enter="login" />
+      <input v-model="formData.password" class="common-input" type="password" placeholder="密码" style="width: 100%" @keyup.enter="login" />
       <div style="text-align: right;">
         <span style="font-size: 12px;color: #999;cursor: pointer;" @click="handleForgetPwd">忘记密码？</span>
       </div>

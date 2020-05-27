@@ -46,7 +46,7 @@ export default {
                 },
                 props: {
                   to: {
-                    path: `/blog/detail/${parama.row._id}`,
+                    path: `/article/detail/${parama.row._id}`,
                   },
                 },
               },
@@ -76,7 +76,7 @@ export default {
                 },
                 props: {
                   to: {
-                    path: `/blog/detail/${parama.row._id}`,
+                    path: `/article/detail/${parama.row._id}`,
                   },
                 },
               },

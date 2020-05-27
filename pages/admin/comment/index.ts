@@ -91,8 +91,8 @@ export default {
           align: 'left',
           minWidth: '200px',
           render: (h: any, parama: any) => {
-            if(!parama.row.blogObj) {
-              return h('span', '文章已删除！')
+            if (!parama.row.blogObj) {
+              return h('span', '文章已删除！');
             }
             return h(
               'router-link',
@@ -102,7 +102,7 @@ export default {
                 },
                 props: {
                   to: {
-                    path: `/blog/detail/${parama.row.blogObj.id}`,
+                    path: `/article/detail/${parama.row.blogObj.id}`,
                   },
                 },
               },

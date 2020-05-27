@@ -3,7 +3,7 @@
     <div class="cart-btn">
       <slot></slot>
     </div>
-    <router-link class="blog-poster" :to="{ path: `/blog/detail/${blogData._id}` }" :style="{ 'background-image': blogData.poster ? 'url(' + blogData.poster + ')' : '' }"></router-link>
+    <router-link class="blog-poster" :to="{ path: `/article/detail/${blogData._id}` }" :style="{ 'background-image': blogData.poster ? 'url(' + blogData.poster + ')' : '' }"></router-link>
     <div class="card-body">
       <p class="blog-title">{{ blogData.title }}</p>
       <p class="blog-category">{{ blogData.categoryObj ? blogData.categoryObj.name : '' }}</p>
