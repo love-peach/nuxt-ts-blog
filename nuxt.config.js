@@ -80,7 +80,6 @@ module.exports = {
     '@nuxtjs/dotenv',
     '@nuxtjs/proxy',
     '@nuxtjs/toast',
-    '@nuxtjs/sitemap',
   ],
   toast: {
     theme: 'bubble',
@@ -161,21 +160,5 @@ module.exports = {
   server: {
     port: 8000, // default: 3000
     // host: '0.0.0.0',
-  },
-  sitemap: {
-    // hostname: 'https://zhangjinpei.cn',
-    hostname: process.env.NODE_ENV === 'production' ? 'https://zhangjinpei.cn' : 'http://localhost:3000',
-
-    gzip: true,
-    exclude: ['/user/**', '/ebook/**', '/admin/**'],
-    sitemaps: [
-      {
-        path: '/article',
-        // routes: ['article/html', 'article/css', 'article/js', 'article/vue', 'article/react', 'article/tool'],
-      },
-      {
-        path: '/resource',
-      },
-    ],
   },
 };
