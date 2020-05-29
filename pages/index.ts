@@ -102,16 +102,16 @@ export default Vue.extend({
       window.open('https://github.com/love-peach/nuxt-ts-blog', '_blank');
     },
   },
-  head() {
-    return {
-      title: '张晋佩-个人博客',
-      meta: [
-        {
-          hid: 'home description',
-          name: 'description',
-          content: '采用 nuxt 搭建的 ssr 个人博客。前端是 vue，后端是 node koa，数据库是 mongodb。',
-        },
-      ],
-    };
-  },
+  // head() {
+  //   return {
+  //     title: '张晋佩-个人博客',
+  //     meta: [
+  //       {
+  //         hid: 'home description',
+  //         name: 'description',
+  //         content: '采用 nuxt 搭建的 ssr 个人博客。前端是 vue，后端是 node koa，数据库是 mongodb。',
+  //       },
+  //     ],
+  //   };
+  // },
 });

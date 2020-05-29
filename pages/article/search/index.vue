@@ -25,6 +25,9 @@
         <Card class="search-wrap">
           <SearchBlog @on-search="handleSearch"></SearchBlog>
         </Card>
+        <!-- <Card padding="0" style="margin-top: 20px;">
+          <div id="ad_article_search_sidebar">fefe</div>
+        </Card> -->
       </div>
     </div>
   </div>

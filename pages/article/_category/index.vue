@@ -15,6 +15,9 @@
           <SearchBlog @on-search="handleSearch"></SearchBlog>
         </Card>
         <CardCategory :category-list="categoryList" />
+        <!-- <Card padding="0">
+          <div id="ad_article_index">fefe</div>
+        </Card> -->
       </div>
     </div>
   </div>

@@ -30,14 +30,19 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: '张晋佩-个人博客',
+    title: '张晋佩 - 做一个精致的前端',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: '采用 nuxt 搭建的 ssr 个人博客。前端是 vue，后端是 node koa，数据库是 mongodb。',
+        content: '张晋佩-做一个精致的前端。采用 nuxt 搭建的 ssr 个人博客。前端是 vue，后端是 node koa，数据库是 mongodb。',
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'zhangjinpei,张晋佩,个人博客,nuxt,ssr,vue,mongodb,blog',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -75,6 +80,7 @@ module.exports = {
     '@nuxtjs/dotenv',
     '@nuxtjs/proxy',
     '@nuxtjs/toast',
+    '@nuxtjs/sitemap',
   ],
   toast: {
     theme: 'bubble',
@@ -155,5 +161,21 @@ module.exports = {
   server: {
     port: 8000, // default: 3000
     // host: '0.0.0.0',
+  },
+  sitemap: {
+    // hostname: 'https://zhangjinpei.cn',
+    hostname: process.env.NODE_ENV === 'production' ? 'https://zhangjinpei.cn' : 'http://localhost:3000',
+
+    gzip: true,
+    exclude: ['/user/**', '/ebook/**', '/admin/**'],
+    sitemaps: [
+      {
+        path: '/article',
+        // routes: ['article/html', 'article/css', 'article/js', 'article/vue', 'article/react', 'article/tool'],
+      },
+      {
+        path: '/resource',
+      },
+    ],
   },
 };

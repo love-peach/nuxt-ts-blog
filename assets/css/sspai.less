@@ -258,5 +258,24 @@
     border: 0;
     outline: 0;
   }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th {
+      padding: 8px;
+      border: 1px solid darken(@colorBorder, 10%);
+      background-color: @colorBorder;
+      text-align: left;
+    }
+    td {
+      padding: 5px 8px;
+      border: 1px solid @colorBorder;
+    }
+    tr:hover {
+      background-color: @colorBorderLight;
+
+    }
+  }
 }
 

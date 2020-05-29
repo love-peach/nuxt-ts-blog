@@ -16,6 +16,10 @@
 
       <div class="z-col-sm-15">
         <MovieInfoCard :movie-detail="movieDetail" />
+
+        <!-- <Card padding="0" :border-radius="0">
+          <div id="ad_movie_detail_sidebar">fefe</div>
+        </Card> -->
       </div>
     </div>
   </div>
@@ -23,6 +27,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+// import Card from '@/components/base/card/';
 import ZVideo from '@/components/base/z-video/';
 import MovieReviewsItem from '@/components/page/movie/movie-reviews-item.vue';
 import MovieInfoCard from '@/components/page/movie/movie-info-card.vue';
@@ -41,6 +46,7 @@ export default Vue.extend({
     ZVideo,
     MovieReviewsItem,
     MovieInfoCard,
+    // Card,
   },
   // async asyncData({ params }: ctxProps) {
   //   const res = await doubanApi.DoubanMovieMovieDetail({ id: params.movieId });

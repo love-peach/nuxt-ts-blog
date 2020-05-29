@@ -1,0 +1,6 @@
+User-agent: *
+Disallow:
+Disallow: /admin
+Disallow: /ebook
+Disallow: /user
+Sitemap: http://zhangjinpei.cn/sitemap.xml

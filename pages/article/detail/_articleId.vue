@@ -21,6 +21,11 @@
         <Card padding="0">
           <MdPreview :content="blogResult.content" />
         </Card>
+
+        <!-- <Card padding="0">
+          <div id="ad_article_detail_banner_bottom">fefe</div>
+        </Card> -->
+
         <Card>
           <CommentsForm @on-success="handleCommentsSuccess"></CommentsForm>
         </Card>
@@ -35,6 +40,9 @@
         <div id="briefWrap">
           <CardBriefBlog v-if="blogResult && blogResult.content" :blog-result="blogResult" />
           <CardNoData v-else style="height: 385px;" />
+          <!-- <Card padding="0">
+            <div id="ad_article_detail_sidebar">fefe</div>
+          </Card> -->
         </div>
         <div id="jsCardMdNav">
           <CardMdNav :blog-result="blogResult" />
