@@ -41,6 +41,7 @@ export default Vue.extend({
       categoryList: 'getCategoryList',
       userInfo: 'getUserInfo',
       tagList: 'getTagList',
+      cacheArticleData: 'getCacheArticleData',
     }),
   },
   mounted() {
@@ -53,6 +54,20 @@ export default Vue.extend({
     if (this.articleId) {
       this.requestBlogDetail();
     }
+
+    console.log(this.cacheArticleData, 'this.cacheArticleData');
+
+    if (this.cacheArticleData) {
+      this.formData = Object.assign({}, this.formData, this.cacheArticleData);
+    }
+  },
+  beforeDestroy() {
+    const cacheData = {
+      ...this.formData,
+      // author: this.userInfo && this.userInfo._id ? this.userInfo._id : '',
+    };
+
+    this.$store.dispatch('common/cacheArticleData', { ...cacheData });
   },
   methods: {
     ...mapActions({
@@ -118,7 +133,7 @@ export default Vue.extend({
      * @desc 检查表单填写是否合格
      */
     checkIsReadyPost() {
-      const { title, category, tag, poster, content } = this.formData;
+      const { title, category, tag, content } = this.formData;
       if (!this.userInfo) {
         this.$toast.info('请登录');
         this.toggleSignInModal(true);

@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import AppLayout from '@/components/framework/app-layout/index.js'
+import AppLayout from '@/components/framework/app-layout/index.js';
 
 import Card from '@/components/base/card/';
 import UserMenu from '@/components/framework/user-menu.vue';

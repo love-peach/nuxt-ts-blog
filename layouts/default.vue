@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import AppLayout from '@/components/framework/app-layout/index.js'
+import AppLayout from '@/components/framework/app-layout/index.js';
 
 export default {
   name: 'AppLayoutDefault',
   components: {
-    AppLayout
+    AppLayout,
   },
 };
 </script>

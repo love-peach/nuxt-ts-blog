@@ -61,7 +61,14 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/axios', '~/plugins/filters.js', '~/plugins/api-repositories.js', { src: '~/plugins/storeCache', ssr: false }, { src: '~/plugins/directive/loading/index.js', ssr: false }],
+  plugins: [
+    '~/plugins/axios',
+    '~/plugins/filters.js',
+    '~/plugins/api-repositories.js',
+    { src: '~/plugins/storeCache', ssr: false },
+    { src: '~/plugins/directive/focus/index.js', ssr: false },
+    { src: '~/plugins/directive/loading/index.js', ssr: false },
+  ],
   /*
    ** Nuxt.js dev-modules
    */

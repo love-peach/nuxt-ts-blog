@@ -10,6 +10,7 @@ const state = () => ({
   token: '',
   highLightIndex: 0, // markdown 目录高亮索引
   categoryIndex: 0,
+  cacheArticleData: null,
 });
 
 const getters = {
@@ -36,6 +37,7 @@ const getters = {
   getToken: state => state.token,
   getHighLightIndex: state => state.highLightIndex,
   getCategoryIndex: state => state.categoryIndex,
+  getCacheArticleData: state => state.cacheArticleData,
 };
 
 const mutations = {
@@ -66,6 +68,9 @@ const mutations = {
   setCatgoryIndex(state, data) {
     state.categoryIndex = data;
   },
+  setCacheArticleData(state, data) {
+    state.cacheArticleData = data;
+  },
 };
 
 const actions = {
@@ -94,6 +99,9 @@ const actions = {
   },
   changeCategoryIndex({ commit }, data) {
     commit('setCatgoryIndex', data);
+  },
+  cacheArticleData({ commit }, data) {
+    commit('setCacheArticleData', data);
   },
 };
 
