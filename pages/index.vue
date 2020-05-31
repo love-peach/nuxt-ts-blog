@@ -17,7 +17,7 @@
             <div class="z-col-sm-30 z-col-md-30 z-col-lg-12">
               <section-card title="前端文章" icon="artical" path="/article">
                 <div>
-                  Vue全家桶(vue, vue-router, vuex, axios)实现一套博客系统，支持 md 边写作边预览。
+                  采用 Nuxt.js 实现一套 ssr 博客系统，支持 md 边写作边预览。
                 </div>
               </section-card>
             </div>
@@ -101,7 +101,7 @@
                   一位比较腼腆的男青年，15年 毕业于 郑州轻工业大学 通信工程专业。大学期间，喜欢上 photoshop，
                   遂在图书馆中自学相关知识，并找到一份实习工作。用第一个月的实习工资，买了人生第一台单反相机，拍下了令人难忘的毕业照。
                   实习期间，接触到前端领域，并从此爱上了前端。但苦于无人带路，机缘巧合，从百度贴吧里知道北京葡萄藤学院可以培训相关技能，于是来到北京。这一待，就待到现在。
-                  到目前为止，一共就职过四家公司。非常感恩这些公司以及曾经的同事们，与其说是工作，不如说是一直在学习。 目前的自己，仍有许多不足，但我相信，只要坚持不懈，总会也来越好。
+                  到目前为止，一共就职过三家公司。非常感恩这些公司以及曾经的同事们，与其说是工作，不如说是一直在学习。 目前的自己，仍有许多不足，但我相信，只要坚持不懈，总会也来越好。
                 </p>
                 <!-- <p class="section-profile-desc-en">
                   A shy young man graduated from Zhengzhou University of light industry in 2005. During the University, I like Photoshop, so I taught myself relevant knowledge in the library and found
