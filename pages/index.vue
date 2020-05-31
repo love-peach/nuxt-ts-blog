@@ -60,7 +60,7 @@
           <div class="z-col-sm-15">
             <div class="section-profile-left">
               <div class="section-profile-avatar-wrap">
-                <img class="section-profile-avatar" src="https://picsum.photos/260/180?image=223" alt="" />
+                <img class="section-profile-avatar" src="/avatar.png" alt="" />
               </div>
               <ul class="section-profile-info">
                 <li>
