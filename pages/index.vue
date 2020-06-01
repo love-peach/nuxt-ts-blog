@@ -180,7 +180,7 @@
         <div class="z-container">
           <ul class="contact-list">
             <li class="contact-list-item">
-              <a class="contact-list-item-link contact-list-item-link-github" target="_blank" rel="noopener noreferrer" href="https://github.com/love-peach/blog-front">
+              <a class="contact-list-item-link contact-list-item-link-github" target="_blank" rel="noopener noreferrer" href="https://github.com/love-peach/nuxt-ts-blog">
                 <Icon type="github" :size="50" class="contact-list-item-icon"></Icon>
               </a>
             </li>
