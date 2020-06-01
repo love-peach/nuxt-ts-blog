@@ -58,6 +58,7 @@
   }
   .repay-list-item {
     padding: 5px;
+    list-style: none;
   }
   .repay-list-item + .repay-list-item {
     border-top: 1px solid @colorBorder;

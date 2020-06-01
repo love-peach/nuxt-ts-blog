@@ -110,7 +110,7 @@ export default Vue.extend({
      * @desc 评论发表成功 回调
      */
     handleCommentsSuccess() {
-      this.$toast.info('添加评论成功，需要通过审核！');
+      this.$toast.success('添加评论成功！');
       this.requestCommentsList();
     },
 

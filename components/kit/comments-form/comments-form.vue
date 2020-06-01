@@ -10,7 +10,7 @@
       </div>
       <div class="comments-form-content">
         <div class="comments-form-content-input">
-          <textarea v-model="formData.content" placeholder="说点什么。。。（评论需要审核通过才可以展示哦~）" rows="7"></textarea>
+          <textarea v-model="formData.content" placeholder="说点什么。。。" rows="7"></textarea>
         </div>
         <span style="position: absolute;left: 0;top: 105%;color: #ccc;">{{ formData.content ? formData.content.length : 0 }} / 500</span>
       </div>
