@@ -17,7 +17,7 @@
   </head>
   <body {{ BODY_ATTRS }}>
     {{ APP }}
-
+    <!-- 百度统计 -->
     <script>
       var _hmt = _hmt || [];
       if (location.host === 'zhangjinpei.cn') {
@@ -28,6 +28,24 @@
           s.parentNode.insertBefore(hm, s);
         })();
       }
+    </script>
+
+    <!-- 百度推送 -->
+    <script>
+      (function(){
+        if (location.host === 'zhangjinpei.cn') {
+          var bp = document.createElement('script');
+          var curProtocol = window.location.protocol.split(':')[0];
+          if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(bp, s);
+        }
+      })();
     </script>
   </body>
 </html>
