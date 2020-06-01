@@ -33,7 +33,7 @@
 
     <Modal v-show="isShowPreviewModal" width="50%" @close="handleHidePreviewModal">
       <div slot="body">
-        <div style="max-height:500px;overflow: auto;">
+        <div style="max-height:550px;overflow: auto;">
           <img :src="previewImgUrl" alt="" style="width:100%;" />
         </div>
       </div>
