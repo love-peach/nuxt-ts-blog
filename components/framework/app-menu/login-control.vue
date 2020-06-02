@@ -11,10 +11,12 @@
         </ConcaveRadiusBox>
       </div>
     </div>
-    <ZbtnGroup v-else>
-      <Zbtn theme="success" size="small" shape="circle" icon="signin" @click="handleSignIn">登录</Zbtn>
-      <Zbtn theme="primary" size="small" shape="circle" icon="signup" @click="handleSignUp">注册</Zbtn>
-    </ZbtnGroup>
+    <div v-else class="btn-group-wrap">
+      <ZbtnGroup>
+        <Zbtn theme="success" size="small" shape="circle" icon="signin" @click="handleSignIn">登录</Zbtn>
+        <Zbtn theme="primary" size="small" shape="circle" icon="signup" @click="handleSignUp">注册</Zbtn>
+      </ZbtnGroup>
+    </div>
   </div>
 </template>
 
@@ -83,10 +85,15 @@ export default {
 }
 .dropdown-menu-wrap {
   position: relative;
+  height: @heightHeader;
+  display: flex;
+  align-items: center;
+
   .dropdown-menu {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 0);
+    top: 100%;
+    transform: translate(-50%, 0.85em);
     z-index: 99;
     display: none;
     color: #fff;
@@ -103,5 +110,10 @@ export default {
   &:hover .dropdown-menu {
     display: block;
   }
+}
+.btn-group-wrap {
+  height: @heightHeader;
+  display: flex;
+  align-items: center;
 }
 </style>

@@ -85,6 +85,9 @@ export default {
 
 <style lang="less" scoped>
 .app-menu {
+  &-list {
+    font-size: 0;
+  }
   &-handle {
     display: none;
     padding: 12px;
@@ -195,6 +198,7 @@ export default {
   }
 }
 .app-menu-login {
+  vertical-align: top;
   &:after {
     display: none;
   }
