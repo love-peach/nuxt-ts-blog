@@ -79,7 +79,7 @@ export default {
 
 <style lang="less" scoped>
 .login-control-wrap {
-  height: @heightHeader;
+  // height: @heightHeader;
 }
 .dropdown-menu-wrap {
   position: relative;

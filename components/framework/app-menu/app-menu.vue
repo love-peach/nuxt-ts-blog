@@ -2,10 +2,10 @@
   <div :class="classes">
     <Icon class="app-menu-handle" type="liebiao" :size="24" @click="handleToggleMenu" />
     <ul class="app-menu-list">
-      <li v-for="(nav, index) in navList" :key="index" class="app-menu-link">
-        <router-link active-class="current" :to="nav.path">{{ nav.name }}</router-link>
+      <li v-for="(nav, index) in navList" :key="index" class="app-menu-item">
+        <router-link class="app-menu-link" active-class="current" :to="nav.path">{{ nav.name }}</router-link>
       </li>
-      <li class="app-menu-link app-menu-login">
+      <li class="app-menu-item app-menu-login">
         <LoginControl :theme="theme" />
       </li>
     </ul>
@@ -89,6 +89,9 @@ export default {
     display: none;
     padding: 12px;
   }
+  &-item {
+    display: inline-block;
+  }
   &-link {
     position: relative;
     display: inline-block;
@@ -121,6 +124,10 @@ export default {
         left: 0;
       }
     }
+  }
+  &-link-a {
+    display: block;
+    line-height: @heightHeader;
   }
 }
 
