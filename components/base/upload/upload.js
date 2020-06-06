@@ -1,4 +1,5 @@
 import ajax from './ajax';
+import { handleCompress, dataURI2Blob } from '@/assets/js/img-healper';
 
 export default {
   name: 'Upload',
@@ -159,9 +160,9 @@ export default {
         }
       }
 
-      const compressFileBase64 = await this.createImage(file);
+      const compressFileBase64 = await handleCompress(file);
+      const compressFileBlob = dataURI2Blob(compressFileBase64);
 
-      const compressFileBlob = this.dataURItoBlob(compressFileBase64);
       // compressFileBlob.lastModifiedDate = new Date();
       // compressFileBlob.name = file.name;
 
@@ -186,76 +187,6 @@ export default {
           this.onError(err, response, file);
         },
       });
-    },
-
-    // 图片上传
-    createImage(file) {
-      const reader = new FileReader();
-      const self = this;
-      return new Promise(resolve => {
-        reader.onload = e => {
-          const result = e.target.result;
-          const img = new Image();
-          img.src = result;
-          console.log('********未压缩前的图片大小********');
-          console.log(result.length / 1024);
-          if (result.length / 1024 > 50) {
-            img.onload = function() {
-              // 0.6为压缩的程度，数值越小，压缩的文件越小，图片也会越模糊
-              resolve(self.compress(img, 0.6));
-            };
-          } else {
-            console.log('********图片不大于 50kb 无需压缩 ********');
-            resolve(result);
-          }
-        };
-        // 读取图像
-        reader.readAsDataURL(file);
-      });
-    },
-
-    compress(img, size) {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      const width = img.width;
-      const height = img.height;
-      canvas.width = width;
-      canvas.height = height;
-      // 铺底色
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0, width, height);
-      // 进行最小压缩
-      const ndata = canvas.toDataURL('image/jpeg', size);
-      console.log('*******压缩后的图片大小*******');
-      console.log(ndata.length / 1024);
-      return ndata;
-    },
-
-    // base64转二进制
-    dataURItoBlob(dataURI) {
-      // base64 解码
-      // const byteString = window.atob(dataURI.split(',')[1]);
-      // const mimeString = dataURI
-      //   .split(',')[0]
-      //   .split(':')[1]
-      //   .split(';')[0];
-      // const ab = new ArrayBuffer(byteString.length);
-      // const ia = new Uint8Array(ab);
-      // for (let i = 0; i < byteString.length; i++) {
-      //   ia[i] = byteString.charCodeAt(i);
-      // }
-      // return new Blob([ab], { type: mimeString });
-
-      const arr = dataURI.split(',');
-      const bstr = atob(arr[1]);
-      let n = bstr.length;
-      const mime = arr[0].match(/:(.*?);/)[1];
-      const u8arr = new Uint8Array(n);
-      while (n--) {
-        u8arr[n] = bstr.charCodeAt(n);
-      }
-      return new Blob([u8arr], { type: mime });
     },
   },
 };

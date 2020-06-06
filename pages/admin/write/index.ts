@@ -55,8 +55,6 @@ export default Vue.extend({
       this.requestBlogDetail();
     }
 
-    console.log(this.cacheArticleData, 'this.cacheArticleData');
-
     if (this.cacheArticleData) {
       this.formData = Object.assign({}, this.formData, this.cacheArticleData);
     }

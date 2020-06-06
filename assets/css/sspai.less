@@ -142,7 +142,8 @@
   }
 
   p code,
-  ul code {
+  ul code,
+  ol code {
     color: #c7254e;
     background-color: #f9f2f4;
     border-radius: 4px;
@@ -262,11 +263,13 @@
   table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
     th {
       padding: 8px;
       border: 1px solid darken(@colorBorder, 10%);
       background-color: @colorBorder;
       text-align: left;
+      min-width: 100px;
     }
     td {
       padding: 5px 8px;
