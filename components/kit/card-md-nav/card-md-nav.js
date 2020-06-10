@@ -36,6 +36,9 @@ export default {
       vm.scrollHandler();
     });
     window.addEventListener('scroll', this.throttleScroll);
+    this.$nextTick(() => {
+      this.getHeaderList();
+    });
   },
   destroyed() {
     window.removeEventListener('scroll', this.throttleScroll);
