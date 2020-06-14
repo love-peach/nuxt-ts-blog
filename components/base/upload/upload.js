@@ -160,8 +160,13 @@ export default {
         }
       }
 
-      const compressFileBase64 = await handleCompress(file);
-      const compressFileBlob = dataURI2Blob(compressFileBase64);
+      let compressFileBase64 = null;
+      let compressFileBlob = file;
+
+      if (!file.name.includes('.gif')) {
+        compressFileBase64 = await handleCompress(file);
+        compressFileBlob = dataURI2Blob(compressFileBase64);
+      }
 
       // compressFileBlob.lastModifiedDate = new Date();
       // compressFileBlob.name = file.name;

@@ -9,7 +9,7 @@
           style="display: inline-block"
           action="/api/upload"
           accept="image/*"
-          :format="['png', 'jpeg', 'jpg']"
+          :format="['png', 'jpeg', 'jpg', 'gif']"
           :data="uploadParams"
           :max-size="2048"
           :on-format-error="handleFormatError"
