@@ -1,6 +1,6 @@
 <template>
   <div :class="classes">
-    <Icon class="app-menu-handle" type="liebiao" :size="24" @click="handleToggleMenu" />
+    <!-- <Icon class="app-menu-handle" type="liebiao" :size="24" @click="handleToggleMenu" /> -->
     <ul class="app-menu-list">
       <li v-for="(nav, index) in navList" :key="index" class="app-menu-item">
         <router-link class="app-menu-link" active-class="current" :to="nav.path">{{ nav.name }}</router-link>
