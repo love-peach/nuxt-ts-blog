@@ -1,7 +1,8 @@
 <template>
   <div class="admin-side-wrap">
     <router-link to="/" active-class="current" class="admin-side-brand">
-      <Icon type="logo" :size="166" />
+      <!-- <Icon type="logo" :size="166" /> -->
+      <div style="font-size: 16px;font-weight: bold;text-align: center;line-height: 50px;">技术文档</div>
     </router-link>
     <div class="admin-side-menu">
       <router-link v-for="(nav, index) in sideMenu" :key="index" active-class="current" class="menu-link" :to="nav.path">{{ nav.name }}</router-link>

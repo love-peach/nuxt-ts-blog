@@ -94,7 +94,8 @@ export default Vue.extend({
   },
   methods: {
     handleGoGithub() {
-      window.open('https://github.com/love-peach/nuxt-ts-blog', '_blank');
+      // window.open('https://github.com/love-peach/nuxt-ts-blog', '_blank');
+      window.open('https://coding.jd.com/', '_blank');
     },
   },
   // head() {

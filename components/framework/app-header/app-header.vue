@@ -3,7 +3,8 @@
     <div class="z-container">
       <div class="app-header">
         <router-link to="/" active-class="current" exact class="app-header-brand">
-          <Icon type="logo" :size="136" />
+          <!-- <Icon type="logo" :size="136" /> -->
+          <span style="font-size: 16px;font-weight: bold;">技术文档</span>
         </router-link>
         <AppMenu :theme="menuTheme" />
       </div>
@@ -12,13 +13,13 @@
 </template>
 
 <script>
-import Icon from '@/components/base/icon/';
+// import Icon from '@/components/base/icon/';
 import AppMenu from '@/components/framework/app-menu/';
 
 export default {
   name: 'AppHeader',
   components: {
-    Icon,
+    // Icon,
     AppMenu,
   },
   data() {
